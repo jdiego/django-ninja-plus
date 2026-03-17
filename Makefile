@@ -13,29 +13,28 @@ clean: ## Removing cached python compiled files
 	find . -name .mypy_cache  | xargs  rm -rfv
 
 install:clean ## Install dependencies
-	pip install -r requirements.txt
-	flit install --symlink
+	uv sync --group dev
 
 install-full:install ## Install dependencies
-	pre-commit install -f
+	uv run pre-commit install -f
 
 lint:fmt ## Run code linters
-	ruff check ninja_extra tests
-	mypy ninja_extra
+	uv run ruff check ninja_plus tests
+	uv run mypy ninja_plus
 
 fmt format:clean ## Run code formatters
-	ruff format ninja_extra tests
-	ruff check --fix ninja_extra tests
+	uv run ruff format ninja_plus tests
+	uv run ruff check --fix ninja_plus tests
 
 
 test:clean ## Run tests
-	pytest .
+	uv run pytest .
 
 test-cov:clean ## Run tests with coverage
-	pytest --cov=ninja_extra --cov-report term-missing tests
+	uv run pytest --cov=ninja_plus --cov-report term-missing tests
 
 doc-deploy:clean ## Run Deploy Documentation
-	mkdocs gh-deploy --force
+	uv run mkdocs gh-deploy --force
 
 doc-serve: ## Launch doc local server
-	mkdocs serve
+	uv run mkdocs serve

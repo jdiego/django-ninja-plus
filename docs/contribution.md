@@ -7,28 +7,22 @@ Please take a moment to review the following guidelines before getting started.
 
 1. **Fork the repository:** Fork the NinjaExtra repository on GitHub and clone it locally.
 
-2. **Virtual Environment:** Create and activate a virtual environment for the project.
+2. **Install `uv`:** Ensure `uv` is available in your environment.
 
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # Linux/macOS
+   uv --version
    ```
 
+3. **Sync the project environment:** Install project, test, docs, and local tooling dependencies.
+
    ```bash
-   python -m venv venv
-   .\venv\Scripts\activate  # Windows
+   uv sync --group dev
    ```
 
-3. **Install `flit`:** Ensure you have `flit` installed globally.
+4. **Install pre-commit hooks:** Install the repository hooks into the local environment.
 
    ```bash
-   pip install flit
-   ```
-
-4. **Install Dependencies:** Install development libraries and pre-commit hooks.
-
-   ```bash
-   make install-full
+   uv run pre-commit install -f
    ```
 
 ### **Code Style and Formatting**

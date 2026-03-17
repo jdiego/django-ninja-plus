@@ -1,5 +1,0 @@
--e .
--r requirements-docs.txt
--r requirements-tests.txt
-
-pre-commit

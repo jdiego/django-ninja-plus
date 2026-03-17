@@ -52,7 +52,7 @@ Django Ninja Extra is a powerful extension for [Django Ninja](https://django-nin
 
 1. Install the package:
 ```bash
-pip install django-ninja-extra
+uv add django-ninja-plus
 ```
 
 2. Add to INSTALLED_APPS:

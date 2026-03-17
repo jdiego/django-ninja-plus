@@ -1,14 +1,19 @@
-![Test](https://github.com/eadwinCode/django-ninja-extra/workflows/Test/badge.svg)
-[![PyPI version](https://badge.fury.io/py/django-ninja-extra.svg)](https://badge.fury.io/py/django-ninja-extra)
-[![PyPI version](https://img.shields.io/pypi/v/django-ninja-extra.svg)](https://pypi.python.org/pypi/django-ninja-extra)
-[![PyPI version](https://img.shields.io/pypi/pyversions/django-ninja-extra.svg)](https://pypi.python.org/pypi/django-ninja-extra)
-[![PyPI version](https://img.shields.io/pypi/djversions/django-ninja-extra.svg)](https://pypi.python.org/pypi/django-ninja-extra)
-[![Codecov](https://img.shields.io/codecov/c/gh/eadwinCode/django-ninja-extra)](https://codecov.io/gh/eadwinCode/django-ninja-extra)
-[![Downloads](https://static.pepy.tech/badge/django-ninja-extra)](https://pepy.tech/project/django-ninja-extra)
+![Test](https://github.com/jdiego/django-ninja-plus/workflows/Test/badge.svg)
+[![PyPI version](https://badge.fury.io/py/django-ninja-plus.svg)](https://badge.fury.io/py/django-ninja-plus)
+[![PyPI](https://img.shields.io/pypi/v/django-ninja-plus.svg)](https://pypi.org/project/django-ninja-plus/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/django-ninja-plus.svg)](https://pypi.org/project/django-ninja-plus/)
+[![Django Versions](https://img.shields.io/pypi/djversions/django-ninja-plus.svg)](https://pypi.org/project/django-ninja-plus/)
+[![Codecov](https://img.shields.io/codecov/c/gh/jdiego/django-ninja-plus)](https://codecov.io/gh/jdiego/django-ninja-plus)
+[![Downloads](https://static.pepy.tech/badge/django-ninja-plus)](https://pepy.tech/project/django-ninja-plus)
 
-# Django Ninja Extra
+# Django Ninja Plus
 
-Django Ninja Extra is a powerful extension for [Django Ninja](https://django-ninja.rest-framework.com) that enhances your Django REST API development experience. It introduces class-based views and advanced features while maintaining the high performance and simplicity of Django Ninja. Whether you're building a small API or a large-scale application, Django Ninja Extra provides the tools you need for clean, maintainable, and efficient API development.
+> ⚠️ This project is a fork of django-ninja-extra.
+> It continues development with an independent roadmap and improvements while preserving compatibility where possible.
+
+Django Ninja Plus is a powerful extension for Django Ninja that enhances your Django REST API development experience. It builds on the foundations of django-ninja-extra and introduces a more maintainable, extensible, and future-proof architecture.
+
+This project aims to evolve the original ideas with improvements in typing, extensibility, and integration with modern tooling.
 
 ## Features
 
@@ -52,13 +57,15 @@ Django Ninja Extra is a powerful extension for [Django Ninja](https://django-nin
 
 1. Install the package:
 ```bash
-pip install django-ninja-extra
+uv add django-ninja-plus
 ```
 
 2. Add to INSTALLED_APPS:
 ```python
 INSTALLED_APPS = [
     ...,
+    'ninja_extra',
+    # Temporary compatibility (will migrate to ninja_plus in future versions)
     'ninja_extra',
 ]
 ```
@@ -166,28 +173,61 @@ Access your API's interactive documentation at `/api/docs`:
 
 ### Tutorials
 - 📺 [Video: Permissions & Controllers](https://www.youtube.com/watch?v=yQqig-c2dd4)
-- 💻 [Example: BookStore API](https://github.com/eadwinCode/bookstoreapi)
-- 📚 [Official Documentation](https://eadwincode.github.io/django-ninja-extra/)
+- 💻 [Example: BookStore API](https://github.com/jdiego/django-ninja-plus)
+- 📚 [Official Documentation](https://github.com/jdiego/django-ninja-plus)
 
 ### Community and Support
-- 🌟 [GitHub Repository](https://github.com/eadwinCode/django-ninja-extra)
-- 🐛 [Issue Tracker](https://github.com/eadwinCode/django-ninja-extra/issues)
-- 💬 [Discussions](https://github.com/eadwinCode/django-ninja-extra/discussions)
+- 🌟 [GitHub Repository](https://github.com/jdiego/django-ninja-plus)
+- 🐛 [Issue Tracker](https://github.com/jdiego/django-ninja-plus/issues)
+- 💬 [Discussions](https://github.com/jdiego/django-ninja-plus/discussions)
 
 ## Contributing
 
 We welcome contributions! Here's how you can help:
 
-1. Fork the repository
+1. Clone this repository
 2. Create a feature branch
 3. Write your changes
 4. Submit a pull request
 
 Please ensure your code follows our coding standards and includes appropriate tests.
 
+## Development Setup
+
+Use `uv` to create the environment and install all local development dependencies:
+
+```bash
+uv sync --group dev
+uv run pre-commit install -f
+```
+
+Common commands:
+
+```bash
+uv run pytest
+uv run ruff check ninja_plus tests
+uv run mypy ninja_plus
+uv run mkdocs serve
+```
+
+## Origin and Credits
+
+This project is based on django-ninja-extra, originally created by Ezeudoh Tochukwu.
+
+All original copyright and license terms are preserved under the MIT License.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+## Why this fork exists
+
+- Continue development of django-ninja-extra
+- Improve typing and maintainability
+- Provide better integration with modern Python tooling (uv, typing, OpenAPI)
+- Enable long-term evolution of the framework
+
 
 ## Support the Project
 
@@ -195,11 +235,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - 🐛 Report issues
 - 📖 Contribute to documentation
 - 🤝 Submit pull requests
-
-## DEPRECATION NOTICE
-### 0.22.2
-The `service` attribute in `ModelController` has been changed from a class object to an **instance** object. When creating a custom `ModelService` for a `ModelController`, you have to specify it as `service_type`. 
-
-This is because services are now injected as dependencies during controller instantiation. Service instantiation is delegated to the injector package, so ensure that any additional dependencies required by your `ModelService` are properly registered in the dependency injection container. 
-
-For more details, please refer to the [documentation](https://eadwincode.github.io/django-ninja-extra/api_controller/model_controller/03_model_service/#advanced-service-patterns)

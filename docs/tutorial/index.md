@@ -10,7 +10,7 @@ And most especially assumes you know how to use **Django Ninja**
 ## **Installation**
 
 ```
-pip install django-ninja-extra
+uv add django-ninja-plus
 ```
 
 After installation, add `ninja_extra` to your `INSTALLED_APPS`
