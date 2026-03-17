@@ -64,9 +64,7 @@ uv add django-ninja-plus
 ```python
 INSTALLED_APPS = [
     ...,
-    'ninja_extra',
-    # Temporary compatibility (will migrate to ninja_plus in future versions)
-    'ninja_extra',
+    'ninja_plus',
 ]
 ```
 
@@ -169,17 +167,6 @@ Access your API's interactive documentation at `/api/docs`:
 
 ![Swagger UI](docs/images/ui_swagger_preview_readme.gif)
 
-## Learning Resources
-
-### Tutorials
-- 📺 [Video: Permissions & Controllers](https://www.youtube.com/watch?v=yQqig-c2dd4)
-- 💻 [Example: BookStore API](https://github.com/jdiego/django-ninja-plus)
-- 📚 [Official Documentation](https://github.com/jdiego/django-ninja-plus)
-
-### Community and Support
-- 🌟 [GitHub Repository](https://github.com/jdiego/django-ninja-plus)
-- 🐛 [Issue Tracker](https://github.com/jdiego/django-ninja-plus/issues)
-- 💬 [Discussions](https://github.com/jdiego/django-ninja-plus/discussions)
 
 ## Contributing
 
