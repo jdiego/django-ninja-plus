@@ -1,8 +1,8 @@
 import django
 import pytest
 
-from ninja_extra import Router
-from ninja_extra.testing import TestAsyncClient, TestClient
+from ninja_plus import Router
+from ninja_plus.testing import TestAsyncClient, TestClient
 
 router = Router(tags=["Some Tag"])
 

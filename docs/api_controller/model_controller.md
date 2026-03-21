@@ -29,7 +29,7 @@ class Event(models.Model):
 Now, let's create a `ModelController` for the `Event` model. In the `api.py` file, we define an `EventModelController`:
 
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -96,8 +96,8 @@ The `ModelConfig` is a Pydantic schema designed for validating and configuring t
   
     ```python
     from ninja.pagination import LimitOffsetPagination
-    from ninja_extra.schemas import NinjaPaginationResponseSchema
-    from ninja_extra import (
+    from ninja_plus.schemas import NinjaPaginationResponseSchema
+    from ninja_plus import (
         ModelConfig,
         ModelControllerBase,
         api_controller,
@@ -122,7 +122,7 @@ list within the `model_config` option.
 For example, you can create a read-only controller like this:
 
 ```python
-from ninja_extra import api_controller, ModelControllerBase, ModelConfig, ModelSchemaConfig
+from ninja_plus import api_controller, ModelControllerBase, ModelConfig, ModelSchemaConfig
 from .models import Event
 
 @api_controller("/events")
@@ -139,7 +139,7 @@ This will only create `GET/{id}` and `GET/` routes for listing.
 You can also add more endpoints to the existing `EventModelController`. For example:
 
 ```python
-from ninja_extra import api_controller, http_get, ModelControllerBase, ModelConfig, ModelSchemaConfig
+from ninja_plus import api_controller, http_get, ModelControllerBase, ModelConfig, ModelSchemaConfig
 from .models import Event
 
 @api_controller("/events")
@@ -185,7 +185,7 @@ It's advised to override the `ModelService` if you have a complex model.
 
 For example, if you want to change the way the `Event` model is being saved:
 ```python
-from ninja_extra import ModelService
+from ninja_plus import ModelService
 
 class EventModelService(ModelService):
     def create(self, schema: PydanticModel, **kwargs: Any) -> Any:
@@ -199,7 +199,7 @@ class EventModelService(ModelService):
 ```
 And then in `api.py`
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -222,7 +222,7 @@ class EventModelController(ModelControllerBase):
 In `model_config`, set `async_routes` to `True`
 
 ```python 
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -253,7 +253,7 @@ It's also possible to merge the controller and the model service together if nee
 
 For example, using the `EventModelService` we created
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -283,7 +283,7 @@ For example, if we want to add an `Event` to a new `Category`, we can do so as f
 ```python
 from typing import Any
 from pydantic import BaseModel
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -341,7 +341,7 @@ For example:
 ```python
 from typing import Any
 from pydantic import BaseModel
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -390,7 +390,7 @@ In the above illustration, we created `add_event_to_new_category` as an asynchro
 
 For example, to retrieve the category of an event (not practical but for illustration):
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -421,7 +421,7 @@ there is no `object_getter` handler implemented.
 
 On the other hand, you can have a case where you need to list events by `category_id`:
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,

@@ -4,7 +4,7 @@ __version__ = "0.31.2"
 
 import django
 
-from ninja_extra.controllers import (
+from ninja_plus.controllers import (
     ControllerBase,
     ModelAsyncEndpointFactory,
     ModelConfig,
@@ -23,15 +23,15 @@ from ninja_extra.controllers import (
     http_post,
     http_put,
 )
-from ninja_extra.controllers.route import route
-from ninja_extra.dependency_resolver import get_injector, service_resolver
-from ninja_extra.main import NinjaExtraAPI
-from ninja_extra.pagination import paginate
-from ninja_extra.router import Router
-from ninja_extra.throttling import throttle
+from ninja_plus.controllers.route import route
+from ninja_plus.dependency_resolver import get_injector, service_resolver
+from ninja_plus.main import NinjaExtraAPI
+from ninja_plus.pagination import paginate
+from ninja_plus.router import Router
+from ninja_plus.throttling import throttle
 
 if django.VERSION < (3, 2):  # pragma: no cover
-    default_app_config = "ninja_extra.apps.NinjaExtraConfig"
+    default_app_config = "ninja_plus.apps.NinjaExtraConfig"
 
 
 __all__ = [

@@ -3,7 +3,7 @@ The `route` class is a function decorator designed to annotate a Controller clas
 
 For instance:
 ```python
-from ninja_extra import route, api_controller
+from ninja_plus import route, api_controller
 
 @api_controller
 class MyController:
@@ -69,7 +69,7 @@ For example:
 
 ```python
 import asyncio
-from ninja_extra import http_get, api_controller
+from ninja_plus import http_get, api_controller
 
 @api_controller
 class MyController:

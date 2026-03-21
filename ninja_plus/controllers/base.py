@@ -19,27 +19,27 @@ from ninja.signature import is_async
 from ninja.throttling import BaseThrottle
 from ninja.utils import normalize_path
 
-from ninja_extra.constants import (
+from ninja_plus.constants import (
     API_CONTROLLER_INSTANCE,
     CONTROLLER_WATERMARK,
-    NINJA_EXTRA_API_CONTROLLER_REGISTERED_KEY,
+    ninja_plus_API_CONTROLLER_REGISTERED_KEY,
     OPERATION_ENDPOINT_KEY,
     ROUTE_OBJECT,
     THROTTLED_FUNCTION,
     THROTTLED_OBJECTS,
 )
-from ninja_extra.context import RouteContext
-from ninja_extra.exceptions import APIException, NotFound, PermissionDenied
-from ninja_extra.helper import get_function_name
-from ninja_extra.operation import Operation, PathView
-from ninja_extra.permissions import (
+from ninja_plus.context import RouteContext
+from ninja_plus.exceptions import APIException, NotFound, PermissionDenied
+from ninja_plus.helper import get_function_name
+from ninja_plus.operation import Operation, PathView
+from ninja_plus.permissions import (
     AllowAny,
     AsyncBasePermission,
     BasePermission,
     BasePermissionType,
 )
-from ninja_extra.reflect import reflect
-from ninja_extra.shortcuts import (
+from ninja_plus.reflect import reflect
+from ninja_plus.shortcuts import (
     aget_object_or_exception,
     aget_object_or_none,
     fail_silently,
@@ -52,9 +52,9 @@ from .registry import controller_registry
 from .route.route_functions import AsyncRouteFunction, RouteFunction
 
 if t.TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra import NinjaExtraAPI
-    from ninja_extra.controllers.model import ModelConfig
-    from ninja_extra.controllers.route import Route
+    from ninja_plus import NinjaExtraAPI
+    from ninja_plus.controllers.model import ModelConfig
+    from ninja_plus.controllers.route import Route
 
 __all__ = [
     "ControllerBase",
@@ -110,14 +110,29 @@ def compute_api_route_function(
         api_controller_instance.add_controller_route_function(cls_route_function)
 
 
-class ControllerBase:
+class RequestContextMixin:
+    @property
+    def request(self) -> t.Any:
+        ctx = getattr(self, "context", None)
+        if ctx is None:
+            raise APIException(
+                "Request is not available in the route context.",
+            )
+        if ctx.request is None:
+            raise APIException(
+                "Request is not available in the context.",
+            )
+        return ctx.request
+
+
+class ControllerBase(RequestContextMixin):
     """
     Abstract Controller Base implementation all Controller class should implement
 
     Example:
     ---------
     ```python
-    from ninja_extra import api_controller, ControllerBase, http_get
+    from ninja_plus import api_controller, ControllerBase, http_get
 
     @api_controller
     class SomeController(ControllerBase):
@@ -318,7 +333,7 @@ class ModelControllerBase(ControllerBase):
     Example:
     ---------
     ```python
-    from ninja_extra import api_controller, ModelControllerBase, ModelConfig
+    from ninja_plus import api_controller, ModelControllerBase, ModelConfig
     from .model import Post
 
     @api_controller
@@ -330,8 +345,22 @@ class ModelControllerBase(ControllerBase):
 
     service_type: t.Type[ModelService] = ModelService
 
+    _service: t.Optional[ModelService] = None
+
     def __init__(self, service: ModelService):
         self.service = service
+
+    @property
+    def service(self) -> ModelService:
+        assert self._service is not None
+        # injeta o contexto no acesso
+        self._service.request = self.request
+        self._service.scope = getattr(self.request, "active_role", None)
+        return self._service
+
+    @service.setter
+    def service(self, value: ModelService) -> None:
+        self._service = value
 
     model_config: t.Optional["ModelConfig"] = None
 
@@ -378,7 +407,7 @@ class APIController:
     Usage:
     ---------
     ```python
-    from ninja_extra import api_controller, ControllerBase, http_post, http_get
+    from ninja_plus import api_controller, ControllerBase, http_post, http_get
 
     @api_controller
     class SomeController:
@@ -555,7 +584,7 @@ class APIController:
 
     def set_api_instance(self, api: "NinjaExtraAPI") -> None:
         reflect.define_metadata(
-            NINJA_EXTRA_API_CONTROLLER_REGISTERED_KEY, {id(api)}, self
+            ninja_plus_API_CONTROLLER_REGISTERED_KEY, {id(api)}, self
         )
         for path_view in self.path_operations.values():
             for operation in path_view.operations:
@@ -563,7 +592,7 @@ class APIController:
 
     def is_registered(self, api: "NinjaExtraAPI") -> bool:
         keys = (
-            reflect.get_metadata(NINJA_EXTRA_API_CONTROLLER_REGISTERED_KEY, self)
+            reflect.get_metadata(ninja_plus_API_CONTROLLER_REGISTERED_KEY, self)
             or set()
         )
         if id(api) in keys:

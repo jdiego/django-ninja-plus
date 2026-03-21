@@ -5,18 +5,18 @@ import django
 import pytest
 from ninja import Schema
 
-from ninja_extra import NinjaExtraAPI, api_controller, route
-from ninja_extra.constants import SEARCH_OPERATOR_OBJECT
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.reflect import reflect
-from ninja_extra.searching import (
+from ninja_plus import NinjaExtraAPI, api_controller, route
+from ninja_plus.constants import SEARCH_OPERATOR_OBJECT
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.reflect import reflect
+from ninja_plus.searching import (
     AsyncSearcheratorOperation,
     SearcheratorOperation,
     Searching,
     SearchingBase,
     searching,
 )
-from ninja_extra.testing import TestAsyncClient, TestClient
+from ninja_plus.testing import TestAsyncClient, TestClient
 
 from .models import Category
 

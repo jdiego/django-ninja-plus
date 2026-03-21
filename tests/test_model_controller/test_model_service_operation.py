@@ -4,9 +4,9 @@ from typing import Any, Optional, Type
 import pytest
 from django.db.models import QuerySet
 
-from ninja_extra import ModelService, status
-from ninja_extra.exceptions import APIException, NotFound
-from ninja_extra.testing import TestClient
+from ninja_plus import ModelService, status
+from ninja_plus.exceptions import APIException, NotFound
+from ninja_plus.testing import TestClient
 
 from ..models import Category, Event
 from .model_service_with_sample import EventModelController

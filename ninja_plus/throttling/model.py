@@ -6,7 +6,7 @@ from django.core.exceptions import ImproperlyConfigured
 from django.http import HttpRequest
 from ninja.throttling import SimpleRateThrottle as BaseSimpleRateThrottle
 
-from ninja_extra.lazy import settings_lazy
+from ninja_plus.lazy import settings_lazy
 
 
 class SimpleRateThrottle(BaseSimpleRateThrottle):

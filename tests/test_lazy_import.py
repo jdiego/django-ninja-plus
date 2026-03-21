@@ -1,6 +1,6 @@
 import pytest
 
-from ninja_extra.lazy import LazyStrImport
+from ninja_plus.lazy import LazyStrImport
 
 
 class TestLazyClassImport:

@@ -10,7 +10,7 @@ All you have to do is create two or more NinjaAPI instances with different `vers
 **`api_v1.py`**:
 
 ```Python
-from ninja_extra import NinjaExtraAPI, route, api_controller
+from ninja_plus import NinjaExtraAPI, route, api_controller
 
 @api_controller
 class MyV1Controller:
@@ -32,7 +32,7 @@ api_**v2**.py:
 You can reuse your APIControllers and make modifications to specific routes.
 
 ```Python
-from ninja_extra import NinjaExtraAPI, route, api_controller
+from ninja_plus import NinjaExtraAPI, route, api_controller
 from .api_v1 import MyV1Controller
 
 @api_controller

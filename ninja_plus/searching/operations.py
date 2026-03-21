@@ -3,13 +3,13 @@ from functools import wraps
 
 from asgiref.sync import sync_to_async
 
-from ninja_extra.constants import SEARCH_OPERATOR_OBJECT
-from ninja_extra.interfaces.searching import SearchingBase
-from ninja_extra.reflect import reflect
-from ninja_extra.shortcuts import add_ninja_contribute_args
+from ninja_plus.constants import SEARCH_OPERATOR_OBJECT
+from ninja_plus.interfaces.searching import SearchingBase
+from ninja_plus.reflect import reflect
+from ninja_plus.shortcuts import add_ninja_contribute_args
 
 if t.TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.controllers import ControllerBase
+    from ninja_plus.controllers import ControllerBase
 
 
 class SearcheratorOperation:

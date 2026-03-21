@@ -5,9 +5,9 @@ import pytest
 from django.core.exceptions import ImproperlyConfigured
 from ninja.testing import TestClient
 
-from ninja_extra import NinjaExtraAPI, api_controller, http_get
-from ninja_extra.controllers.registry import controller_registry
-from ninja_extra.controllers.utils import get_api_controller
+from ninja_plus import NinjaExtraAPI, api_controller, http_get
+from ninja_plus.controllers.registry import controller_registry
+from ninja_plus.controllers.utils import get_api_controller
 
 
 @api_controller
@@ -41,17 +41,17 @@ def test_api_instance():
 
 
 def test_api_auto_discover_controller():
-    ninja_extra_api = NinjaExtraAPI()
+    ninja_plus_api = NinjaExtraAPI()
     assert str(SomeAPIController) in controller_registry.get_controllers()
 
     with mock.patch.object(
-        ninja_extra_api, "register_controllers"
+        ninja_plus_api, "register_controllers"
     ) as mock_register_controllers:
-        ninja_extra_api.auto_discover_controllers()
+        ninja_plus_api.auto_discover_controllers()
     assert mock_register_controllers.call_count == 2
 
     assert (
-        "<class 'ninja_extra.controllers.base.EventController'>"
+        "<class 'ninja_plus.controllers.base.EventController'>"
         in controller_registry.get_controllers()
     )
 
@@ -69,21 +69,21 @@ def test_api_register_controller_works(reflect_context):
         def example(self):
             return self.create_response("Create Response Works")
 
-    ninja_extra_api = NinjaExtraAPI()
-    assert len(ninja_extra_api._routers) == 1
-    assert not get_api_controller(AnotherAPIController).is_registered(ninja_extra_api)
+    ninja_plus_api = NinjaExtraAPI()
+    assert len(ninja_plus_api._routers) == 1
+    assert not get_api_controller(AnotherAPIController).is_registered(ninja_plus_api)
 
-    ninja_extra_api.register_controllers(AnotherAPIController)
-    assert get_api_controller(AnotherAPIController).is_registered(ninja_extra_api)
-    assert len(ninja_extra_api._routers) == 2
+    ninja_plus_api.register_controllers(AnotherAPIController)
+    assert get_api_controller(AnotherAPIController).is_registered(ninja_plus_api)
+    assert len(ninja_plus_api._routers) == 2
 
-    assert "/another" in dict(ninja_extra_api._routers)
+    assert "/another" in dict(ninja_plus_api._routers)
 
     with pytest.raises(ImproperlyConfigured) as ex:
-        ninja_extra_api.register_controllers(InvalidSomeAPIController)
+        ninja_plus_api.register_controllers(InvalidSomeAPIController)
 
     assert "class is not a controller" in str(ex.value)
-    client = TestClient(ninja_extra_api)
+    client = TestClient(ninja_plus_api)
     res = client.get("/another/example")
     assert res.status_code == 200
     assert res.content == b'"Create Response Works"'

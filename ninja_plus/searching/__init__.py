@@ -1,4 +1,4 @@
-from ninja_extra.interfaces.searching import SearchingBase
+from ninja_plus.interfaces.searching import SearchingBase
 
 from .decorators import searching
 from .models import Searching

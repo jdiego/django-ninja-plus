@@ -3,7 +3,7 @@ Route path _parameters_ are declared in python format-strings.
 for example:
 
 ```python hl_lines="7 8"
-from ninja_extra import api_controller, route
+from ninja_plus import api_controller, route
 from ninja import constants
 
 

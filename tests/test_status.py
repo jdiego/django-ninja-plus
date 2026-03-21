@@ -1,4 +1,4 @@
-from ninja_extra.status import (
+from ninja_plus.status import (
     is_client_error,
     is_informational,
     is_redirect,

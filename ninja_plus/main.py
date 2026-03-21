@@ -14,16 +14,16 @@ from ninja.renderers import BaseRenderer
 from ninja.throttling import BaseThrottle
 from ninja.types import DictStrAny, TCallable
 
-from ninja_extra import exceptions, router
-from ninja_extra.compatible import NOT_SET_TYPE
-from ninja_extra.constants import API_CONTROLLER_INSTANCE
-from ninja_extra.controllers.base import (
+from ninja_plus import exceptions, router
+from ninja_plus.compatible import NOT_SET_TYPE
+from ninja_plus.constants import API_CONTROLLER_INSTANCE
+from ninja_plus.controllers.base import (
     APIController,
     ControllerBase,
     ControllerBoundRouter,
 )
-from ninja_extra.controllers.registry import controller_registry
-from ninja_extra.reflect import reflect
+from ninja_plus.controllers.registry import controller_registry
+from ninja_plus.reflect import reflect
 
 __all__ = [
     "NinjaExtraAPI",

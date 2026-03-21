@@ -2,7 +2,7 @@ import contextvars
 import typing as t
 
 if t.TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.context import RouteContext
+    from ninja_plus.context import RouteContext
 
 
 POST = "POST"
@@ -27,7 +27,7 @@ API_CONTROLLER_INSTANCE = "API_CONTROLLER_INSTANCE"
 ORDERATOR_OBJECT = "ORDERATOR_WATERMARK"
 SEARCH_OPERATOR_OBJECT = "SEARCH_OPERATOR_OBJECT"
 PAGINATOR_OBJECT = "PAGINATOR_WATERMARK"
-NINJA_EXTRA_API_CONTROLLER_REGISTERED_KEY = "NINJA_EXTRA_API_CONTROLLER_REGISTERED_KEY"
+ninja_plus_API_CONTROLLER_REGISTERED_KEY = "ninja_plus_API_CONTROLLER_REGISTERED_KEY"
 
 ROUTE_CONTEXT_VAR: contextvars.ContextVar[t.Optional["RouteContext"]] = (
     contextvars.ContextVar("ROUTE_CONTEXT_VAR")

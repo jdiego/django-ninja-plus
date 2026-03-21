@@ -3,9 +3,9 @@ from contextlib import contextmanager
 from django.core.cache import cache
 from ninja.testing import TestClient
 
-from ninja_extra import NinjaExtraAPI
-from ninja_extra.conf import settings
-from ninja_extra.throttling import DynamicRateThrottle
+from ninja_plus import NinjaExtraAPI
+from ninja_plus.conf import settings
+from ninja_plus.throttling import DynamicRateThrottle
 
 
 class Throttle(DynamicRateThrottle):

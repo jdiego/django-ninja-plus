@@ -11,23 +11,23 @@ from ninja.signature import is_async
 from ninja.throttling import BaseThrottle
 from pydantic import BaseModel as PydanticModel
 
-from ninja_extra import status
-from ninja_extra.controllers.model.path_resolver import (
+from ninja_plus import status
+from ninja_plus.controllers.model.path_resolver import (
     AsyncPathResolverOperation,
     PathResolverOperation,
 )
-from ninja_extra.controllers.route import route
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.exceptions import NotFound
-from ninja_extra.pagination import (
+from ninja_plus.controllers.route import route
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.exceptions import NotFound
+from ninja_plus.pagination import (
     PageNumberPaginationExtra,
     PaginatedResponseSchema,
     paginate,
 )
-from ninja_extra.permissions import BasePermission
+from ninja_plus.permissions import BasePermission
 
 if t.TYPE_CHECKING:
-    from ninja_extra.controllers.base import ModelControllerBase
+    from ninja_plus.controllers.base import ModelControllerBase
 
 
 async def _check_if_coroutine(func_result: t.Union[t.Any, t.Coroutine]) -> t.Any:

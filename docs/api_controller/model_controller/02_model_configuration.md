@@ -7,7 +7,7 @@ The `ModelConfig` class in Ninja Extra provides extensive configuration options 
 Here's a comprehensive example of `ModelConfig` usage:
 
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     ModelSchemaConfig,
@@ -36,7 +36,7 @@ class EventModelController(ModelControllerBase):
 The `ModelSchemaConfig` class controls how Pydantic schemas are generated from your Django models:
 
 ```python
-from ninja_extra import ModelConfig, ModelSchemaConfig
+from ninja_plus import ModelConfig, ModelSchemaConfig
 
 # Detailed schema configuration
 schema_config = ModelSchemaConfig(
@@ -106,11 +106,11 @@ Model Controllers support customizable pagination for list endpoints:
 
 ```python
 from ninja.pagination import LimitOffsetPagination
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelPagination
 )
-from ninja_extra.pagination import NinjaPaginationResponseSchema
+from ninja_plus.pagination import NinjaPaginationResponseSchema
 
 @api_controller("/events")
 class EventModelController(ModelControllerBase):
@@ -135,8 +135,8 @@ You can combine pagination with Django Ninja's `FilterSchema` to automatically a
 ```python
 from typing import Optional
 from ninja import FilterSchema
-from ninja_extra import ModelConfig, ModelPagination
-from ninja_extra.pagination import PageNumberPaginationExtra
+from ninja_plus import ModelConfig, ModelPagination
+from ninja_plus.pagination import PageNumberPaginationExtra
 
 # Define a FilterSchema for your model
 class EventFilterSchema(FilterSchema):
@@ -343,9 +343,9 @@ class EventModelController(ModelControllerBase):
 ### **Advanced Configuration Example**
 
 ```python
-from ninja_extra import status
-from ninja_extra.permissions import IsAuthenticated, IsAdminUser
-from ninja_extra.throttling import AnonRateThrottle
+from ninja_plus import status
+from ninja_plus.permissions import IsAuthenticated, IsAdminUser
+from ninja_plus.throttling import AnonRateThrottle
 
 @api_controller("/events")
 class EventModelController(ModelControllerBase):
@@ -417,7 +417,7 @@ class AsyncEventModelController(ModelControllerBase):
 ModelConfig also support configuration inheritance:
 
 ```python
-from ninja_extra.controllers import ModelConfig
+from ninja_plus.controllers import ModelConfig
 
 class BaseModelConfig(ModelConfig):
     async_routes = True

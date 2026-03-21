@@ -3,10 +3,10 @@ import uuid
 import pytest
 from ninja.constants import NOT_SET
 
-from ninja_extra import ControllerBase, api_controller, http_get
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.testing import TestClient
-from ninja_extra.throttling import (
+from ninja_plus import ControllerBase, api_controller, http_get
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.testing import TestClient
+from ninja_plus.throttling import (
     AnonRateThrottle,
     DynamicRateThrottle,
     UserRateThrottle,

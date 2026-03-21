@@ -22,7 +22,7 @@ These methods can be overridden in subclasses to provide custom behavior.
 The ControllerBase class also includes a **dependency injection** system that allows for easy access to other services and objects within the application, such as the repository services etc.
 
 ```python
-from ninja_extra import ControllerBase, api_controller
+from ninja_plus import ControllerBase, api_controller
 
 @api_controller('/users')
 class UserControllerBase(ControllerBase):
@@ -51,7 +51,7 @@ for example:
 
 ```python
 import typing
-from ninja_extra import api_controller, ControllerBase, permissions, route
+from ninja_plus import api_controller, ControllerBase, permissions, route
 from django.contrib.auth.models import User
 from ninja.security import APIKeyQuery
 from ninja import ModelSchema
@@ -99,11 +99,11 @@ Let's create an APIController to properly manage Django user model
 ```python
 import uuid
 from ninja import ModelSchema
-from ninja_extra import (
+from ninja_plus import (
     http_get, http_post, http_generic, http_delete,
     api_controller, status, ControllerBase, pagination
 )
-from ninja_extra.controllers.response import Detail
+from ninja_plus.controllers.response import Detail
 from django.contrib.auth import get_user_model
 
 

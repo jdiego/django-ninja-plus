@@ -1,27 +1,27 @@
 # **Settings**
 
-Django-Ninja-Extra has some settings that can be overridden by adding a `NINJA_EXTRA` field in Django `settings.py` with some key-value pair as shown below:
+Django-Ninja-Extra has some settings that can be overridden by adding a `ninja_plus` field in Django `settings.py` with some key-value pair as shown below:
 
 ```python
 # Django project settings.py
 
 
-NINJA_EXTRA = {
-    'PAGINATION_CLASS':"ninja_extra.pagination.PageNumberPaginationExtra",
+ninja_plus = {
+    'PAGINATION_CLASS':"ninja_plus.pagination.PageNumberPaginationExtra",
     'PAGINATION_PER_PAGE': 100,
     'INJECTOR_MODULES': [],
     'THROTTLE_CLASSES': [
-        "ninja_extra.throttling.AnonRateThrottle",
-        "ninja_extra.throttling.UserRateThrottle",
+        "ninja_plus.throttling.AnonRateThrottle",
+        "ninja_plus.throttling.UserRateThrottle",
     ],
     'THROTTLE_RATES': {
         'user': '1000/day',
         'anon': '100/day',
     },
     'NUM_PROXIES': None,
-    'ORDERING_CLASS':"ninja_extra.ordering.Ordering",
-    'SEARCHING_CLASS':"ninja_extra.searching.Searching",
-    'ROUTE_CONTEXT_CLASS':"ninja_extra.context.RouteContext",
+    'ORDERING_CLASS':"ninja_plus.ordering.Ordering",
+    'SEARCHING_CLASS':"ninja_plus.searching.Searching",
+    'ROUTE_CONTEXT_CLASS':"ninja_plus.context.RouteContext",
 }
 ```
 
@@ -31,7 +31,7 @@ You can override what you don't need. It is not necessary need to override every
 
 It defines the default paginator class used by the `paginate` decorator
 function if a paginator class is not defined.
-default: `ninja_extra.pagination.LimitOffsetPagination`
+default: `ninja_plus.pagination.LimitOffsetPagination`
 
 # `PAGINATION_PER_PAGE`
 
@@ -47,8 +47,8 @@ default: `[]`
 
 It contains a list of strings that defines the path default throttling classes.
 default: `[
-    "ninja_extra.throttling.AnonRateThrottle",
-    "ninja_extra.throttling.UserRateThrottle",
+    "ninja_plus.throttling.AnonRateThrottle",
+    "ninja_plus.throttling.UserRateThrottle",
 ]`
 
 # `THROTTLE_RATES`
@@ -63,17 +63,17 @@ default: `{
 
 It defines the default ordering class used by the `ordering` decorator
 function if a ordering class is not defined.
-default: `ninja_extra.ordering.Ordering`
+default: `ninja_plus.ordering.Ordering`
 
 # `SEARCHING_CLASS`
 
 It defines the default searching class used by the `searching` decorator
 function if a searching class is not defined.
-default: `ninja_extra.searching.Searching`
+default: `ninja_plus.searching.Searching`
 
 # `ROUTE_CONTEXT_CLASS`
 
 It defines the default `RouteContext` class that will be instantiated during request processing.
-default: `ninja_extra.context.RouteContext`
+default: `ninja_plus.context.RouteContext`
 
 See [Route Context](route_context.md) for more details.

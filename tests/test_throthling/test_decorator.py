@@ -5,9 +5,9 @@ import django
 import pytest
 from ninja.testing import TestAsyncClient, TestClient
 
-from ninja_extra import NinjaExtraAPI
-from ninja_extra.conf import settings
-from ninja_extra.throttling import (
+from ninja_plus import NinjaExtraAPI
+from ninja_plus.conf import settings
+from ninja_plus.throttling import (
     AnonRateThrottle,
     DynamicRateThrottle,
     UserRateThrottle,

@@ -7,7 +7,7 @@ Django Ninja Extra provides powerful dependency injection capabilities using [In
 Let's start with a simple example of dependency injection in a controller:
 
 ```python
-from ninja_extra import api_controller, http_get
+from ninja_plus import api_controller, http_get
 from injector import inject
 
 class UserService:
@@ -91,7 +91,7 @@ class TodoService:
 ### 2. Create the Controller
 
 ```python
-from ninja_extra import api_controller, http_get, http_post, http_put
+from ninja_plus import api_controller, http_get, http_post, http_put
 from ninja import Body
 
 # Request Models
@@ -163,7 +163,7 @@ class TodoModule(Module):
 Add the module to your Django settings:
 
 ```python
-NINJA_EXTRA = {
+ninja_plus = {
     'INJECTOR_MODULES': [
         'your_app.modules.TodoModule'
     ]
@@ -175,7 +175,7 @@ NINJA_EXTRA = {
 ### 5. Register the API
 
 ```python
-from ninja_extra import NinjaExtraAPI
+from ninja_plus import NinjaExtraAPI
 
 api = NinjaExtraAPI()
 api.register_controllers(TodoController)
@@ -186,7 +186,7 @@ api.register_controllers(TodoController)
 You can inject multiple services into a controller:
 
 ```python
-from ninja_extra import api_controller, http_get
+from ninja_plus import api_controller, http_get
 from injector import inject
 
 class AuthService:
@@ -223,7 +223,7 @@ class AdminController:
 Sometimes you might need to resolve services outside of controllers. Django Ninja Extra provides a `service_resolver` utility for this:
 
 ```python
-from ninja_extra import service_resolver
+from ninja_plus import service_resolver
 
 # Resolve a single service
 todo_service = service_resolver(TodoService)

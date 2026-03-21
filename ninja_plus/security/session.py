@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.auth.middleware import get_user
 from django.http import HttpRequest
 
-from ninja_extra.security.api_key import AsyncAPIKeyCookie
+from ninja_plus.security.api_key import AsyncAPIKeyCookie
 
 __all__ = ["AsyncSessionAuth"]
 

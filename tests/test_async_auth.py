@@ -6,8 +6,8 @@ from django.conf import settings
 from ninja.security import APIKeyCookie
 from ninja.testing import TestAsyncClient, TestClient
 
-from ninja_extra import NinjaExtraAPI, exceptions
-from ninja_extra.security import (
+from ninja_plus import NinjaExtraAPI, exceptions
+from ninja_plus.security import (
     AsyncAPIKeyCookie,
     AsyncAPIKeyHeader,
     AsyncAPIKeyQuery,

@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 import pytest
 from pydantic import UUID4
 
-from ninja_extra.controllers.model.path_resolver import (
+from ninja_plus.controllers.model.path_resolver import (
     AsyncPathResolverOperation,
     PathCompiledResult,
     PathResolverOperation,
@@ -234,7 +234,7 @@ def test_get_query_fields_with_multiple_types():
     assert query_fields["filter"][0] is int  # Should use the first type
 
 
-@patch("ninja_extra.controllers.model.path_resolver.add_ninja_contribute_args")
+@patch("ninja_plus.controllers.model.path_resolver.add_ninja_contribute_args")
 def test_path_resolver_view_function(mock_add_ninja):
     # Setup
     def example_view(request, user_id=None, page=None):
@@ -269,7 +269,7 @@ def test_path_resolver_view_function(mock_add_ninja):
     query_model_instance.dict.assert_called_once()
 
 
-@patch("ninja_extra.controllers.model.path_resolver.add_ninja_contribute_args")
+@patch("ninja_plus.controllers.model.path_resolver.add_ninja_contribute_args")
 def test_path_resolver_view_function_no_models(mock_add_ninja):
     # Setup
     def example_view(request):
@@ -291,7 +291,7 @@ def test_path_resolver_view_function_no_models(mock_add_ninja):
     assert result == {"message": "Hello World"}
 
 
-@patch("ninja_extra.controllers.model.path_resolver.add_ninja_contribute_args")
+@patch("ninja_plus.controllers.model.path_resolver.add_ninja_contribute_args")
 @pytest.mark.asyncio
 async def test_async_path_resolver_view_function(mock_add_ninja):
     # Setup

@@ -1,8 +1,8 @@
 import pytest
 from ninja.testing import TestClient
 
-from ninja_extra import NinjaExtraAPI, Router
-from ninja_extra.operation import PathView
+from ninja_plus import NinjaExtraAPI, Router
+from ninja_plus.operation import PathView
 
 from .schemas import UserSchema
 

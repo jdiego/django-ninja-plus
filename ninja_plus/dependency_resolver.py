@@ -4,8 +4,8 @@ from django.apps import apps
 from django.core.exceptions import ImproperlyConfigured
 from injector import Injector, Module
 
-from ninja_extra.apps import NinjaExtraConfig
-from ninja_extra.shortcuts import fail_silently
+from ninja_plus.apps import NinjaExtraConfig
+from ninja_plus.shortcuts import fail_silently
 
 __all__ = ["service_resolver", "get_injector", "register_injector_modules"]
 
@@ -19,7 +19,7 @@ def get_injector() -> Injector:
     )
     if not app:
         raise ImproperlyConfigured(
-            "ninja_extra app is not installed. Did you forget register `ninja_extra` in `INSTALLED_APPS`"
+            "ninja_plus app is not installed. Did you forget register `ninja_plus` in `INSTALLED_APPS`"
         )
     injector = app.injector
     return injector

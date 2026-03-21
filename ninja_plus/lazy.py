@@ -4,7 +4,7 @@ from django.utils.functional import LazyObject, empty
 from django.utils.module_loading import import_string
 
 if t.TYPE_CHECKING:
-    from ninja_extra.conf.package_settings import NinjaExtraSettings
+    from ninja_plus.conf.package_settings import NinjaExtraSettings
 
 
 class LazyStrImport(LazyObject):
@@ -27,5 +27,5 @@ class LazyStrImport(LazyObject):
 
 def settings_lazy() -> "NinjaExtraSettings":
     return t.cast(
-        "NinjaExtraSettings", LazyStrImport("ninja_extra.conf.settings")._setup()
+        "NinjaExtraSettings", LazyStrImport("ninja_plus.conf.settings")._setup()
     )

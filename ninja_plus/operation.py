@@ -33,15 +33,15 @@ from ninja.signature import is_async
 from ninja.throttling import BaseThrottle
 from ninja.types import TCallable
 
-from ninja_extra.compatible import asynccontextmanager
-from ninja_extra.constants import ROUTE_CONTEXT_VAR
-from ninja_extra.context import RouteContext, get_route_execution_context
-from ninja_extra.exceptions import APIException, Throttled
-from ninja_extra.helper import get_function_name
-from ninja_extra.logger import request_logger
+from ninja_plus.compatible import asynccontextmanager
+from ninja_plus.constants import ROUTE_CONTEXT_VAR
+from ninja_plus.context import RouteContext, get_route_execution_context
+from ninja_plus.exceptions import APIException, Throttled
+from ninja_plus.helper import get_function_name
+from ninja_plus.logger import request_logger
 
-# from ninja_extra.signals import route_context_finished, route_context_started
-from ninja_extra.types import PermissionType
+# from ninja_plus.signals import route_context_finished, route_context_started
+from ninja_plus.types import PermissionType
 
 from .details import ViewSignature
 

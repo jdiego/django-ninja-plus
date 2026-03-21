@@ -8,10 +8,10 @@ from ninja import NinjaAPI, Router
 from ninja.responses import NinjaJSONEncoder
 from ninja.testing.client import NinjaClientBase, NinjaResponse
 
-from ninja_extra import ControllerBase, NinjaExtraAPI
-from ninja_extra.constants import CONTROLLER_WATERMARK
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.reflect import reflect
+from ninja_plus import ControllerBase, NinjaExtraAPI
+from ninja_plus.constants import CONTROLLER_WATERMARK
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.reflect import reflect
 
 
 class NinjaExtraClientBase(NinjaClientBase):

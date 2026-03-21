@@ -13,12 +13,12 @@ And most especially assumes you know how to use **Django Ninja**
 uv add django-ninja-plus
 ```
 
-After installation, add `ninja_extra` to your `INSTALLED_APPS`
+After installation, add `ninja_plus` to your `INSTALLED_APPS`
 
 ```Python 
 INSTALLED_APPS = [
     ...,
-    'ninja_extra',
+    'ninja_plus',
 ]
 ```
 
@@ -43,7 +43,7 @@ Let's create a module for our API.  Create an **api.py** file in the same direct
 
 
 ```Python
-from ninja_extra import NinjaExtraAPI
+from ninja_plus import NinjaExtraAPI
 
 api = NinjaExtraAPI()
 
@@ -84,7 +84,7 @@ The `route` class is an extra decorator that converts APIController instance met
 
 On the other hand, the `router` here is a short form of the `ControllerRouter` class,  an adapter class, which is an that only adapts APIController to the Django-Ninja router. It also provides global control of all routes defined in any APIController class.
 ```Python
-from ninja_extra import (
+from ninja_plus import (
     api_controller, 
     http_get, http_post, http_put, http_delete, http_patch, http_generic
 )

@@ -15,7 +15,7 @@ Use standard Python types for all the attributes:
 
 ```Python
 from ninja import Schema, constants
-from ninja_extra import api_controller, route
+from ninja_plus import api_controller, route
 
 
 class Item(Schema):

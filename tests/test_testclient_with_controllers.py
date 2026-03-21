@@ -4,8 +4,8 @@ import django
 import pytest
 from ninja import Schema
 
-from ninja_extra import api_controller, route
-from ninja_extra.testing import TestAsyncClient, TestClient
+from ninja_plus import api_controller, route
+from ninja_plus.testing import TestAsyncClient, TestClient
 
 
 @api_controller("", tags=["Users"])

@@ -1,6 +1,6 @@
 from typing import Any, List, Type, Union
 
-from ninja_extra.permissions.base import AsyncBasePermission, BasePermission
+from ninja_plus.permissions.base import AsyncBasePermission, BasePermission
 
 PermissionType = List[
     Union[

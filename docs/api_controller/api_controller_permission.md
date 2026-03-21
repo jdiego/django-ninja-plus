@@ -14,7 +14,7 @@ Django Ninja Extra comes with several built-in permission classes:
 Allows unrestricted access to any endpoint.
 
 ```python
-from ninja_extra import permissions, api_controller, http_get
+from ninja_plus import permissions, api_controller, http_get
 
 @api_controller(permissions=[permissions.AllowAny])
 class PublicController:
@@ -27,7 +27,7 @@ class PublicController:
 Only allows access to authenticated users.
 
 ```python
-from ninja_extra import permissions, api_controller, http_get
+from ninja_plus import permissions, api_controller, http_get
 
 @api_controller(permissions=[permissions.IsAuthenticated])
 class PrivateController:
@@ -43,7 +43,7 @@ class PrivateController:
 Allows read-only access to unauthenticated users, but requires authentication for write operations.
 
 ```python
-from ninja_extra import permissions, api_controller, http_get, http_post
+from ninja_plus import permissions, api_controller, http_get, http_post
 
 @api_controller("/posts", permissions=[permissions.IsAuthenticatedOrReadOnly])
 class BlogController:
@@ -60,7 +60,7 @@ class BlogController:
 Only allows access to admin users (users with `is_staff=True`).
 
 ```python
-from ninja_extra import permissions, api_controller, http_get
+from ninja_plus import permissions, api_controller, http_get
 
 @api_controller("/admin", permissions=[permissions.IsAdminUser])
 class AdminController:
@@ -74,7 +74,7 @@ class AdminController:
 You can create custom permissions by subclassing `BasePermission`:
 
 ```python
-from ninja_extra import permissions, api_controller, http_get
+from ninja_plus import permissions, api_controller, http_get
 from django.http import HttpRequest
 
 class HasAPIKey(permissions.BasePermission):
@@ -94,7 +94,7 @@ class APIKeyProtectedController:
 For fine-grained control over individual objects:
 
 ```python
-from ninja_extra import permissions, api_controller, http_get
+from ninja_plus import permissions, api_controller, http_get
 from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
 from .models import Post
@@ -122,7 +122,7 @@ Django Ninja Extra supports combining permissions using logical operators:
 - `~` (NOT): Inverts the permission
 
 ```python
-from ninja_extra import permissions, api_controller, http_get
+from ninja_plus import permissions, api_controller, http_get
 
 class HasPremiumSubscription(permissions.BasePermission):
     def has_permission(self, request, controller):
@@ -148,7 +148,7 @@ class ContentController:
 You can dynamically check different roles or permissions for a user using a single permission class. Here's an example:
 
 ```python
-from ninja_extra import permissions, api_controller, http_get, http_post, http_delete
+from ninja_plus import permissions, api_controller, http_get, http_post, http_delete
 
 class HasRole(permissions.BasePermission):
     def __init__(self, required_role: str):
@@ -183,7 +183,7 @@ By default, permission checks are performed before route function parameters are
 ### **Basic Route Context Usage**
 
 ```python
-from ninja_extra import permissions, api_controller, http_get, ControllerBase
+from ninja_plus import permissions, api_controller, http_get, ControllerBase
 from django.http import HttpRequest
 
 class IsOwner(permissions.BasePermission):
@@ -207,7 +207,7 @@ class UserController:
 Here are more complex examples showing different ways to use route context:
 
 ```python
-from ninja_extra import permissions, api_controller, http_get, http_post, ControllerBase
+from ninja_plus import permissions, api_controller, http_get, http_post, ControllerBase
 from django.http import HttpRequest
 from typing import Optional
 
@@ -256,7 +256,7 @@ class TeamProjectController:
 You can also access query parameters in your permission classes:
 
 ```python
-from ninja_extra import permissions, api_controller, http_get, ControllerBase
+from ninja_plus import permissions, api_controller, http_get, ControllerBase
 from django.http import HttpRequest
 
 class HasFeatureAccess(permissions.BasePermission):

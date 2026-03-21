@@ -15,10 +15,10 @@ from ninja.pagination import PaginationBase
 from ninja.types import DictStrAny
 from pydantic import Field
 
-from ninja_extra.conf import settings
-from ninja_extra.exceptions import NotFound
-from ninja_extra.schemas import PaginatedResponseSchema
-from ninja_extra.urls import remove_query_param, replace_query_param
+from ninja_plus.conf import settings
+from ninja_plus.exceptions import NotFound
+from ninja_plus.schemas import PaginatedResponseSchema
+from ninja_plus.urls import remove_query_param, replace_query_param
 
 logger = logging.getLogger()
 

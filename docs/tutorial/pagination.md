@@ -6,16 +6,16 @@
 
 `def paginate(func_or_pgn_class: Any = NOT_SET, filter_schema: Optional[Type[FilterSchema]] = None, **paginator_params: Any) -> Callable[..., Any]:`
 
-- func_or_pgn_class: Defines a route function or a Pagination Class. default: `ninja_extra.pagination.LimitOffsetPagination`
+- func_or_pgn_class: Defines a route function or a Pagination Class. default: `ninja_plus.pagination.LimitOffsetPagination`
 - filter_schema: Optional FilterSchema class from Django Ninja for filtering querysets before pagination
 - paginator_params: extra parameters for initialising Pagination Class
 
 ### **Using Ninja LimitOffsetPagination**
-When using `ninja_extra.pagination.LimitOffsetPagination`,
+When using `ninja_plus.pagination.LimitOffsetPagination`,
 you should use `NinjaPaginationResponseSchema` as pagination response schema wrapper.
 For example: 
 ```python
-from ninja_extra.schemas import NinjaPaginationResponseSchema
+from ninja_plus.schemas import NinjaPaginationResponseSchema
 
 ...
 
@@ -27,24 +27,24 @@ def list_items(self):
     
 
 ### **Changing Default Pagination Class**
-To change the default pagination class, you need to add a `NINJA_EXTRA` variable in `settings.py` with a key `PAGINATION_CLASS` and value defining path to pagination class
+To change the default pagination class, you need to add a `ninja_plus` variable in `settings.py` with a key `PAGINATION_CLASS` and value defining path to pagination class
 ```python
 # Django project settings.py
 INSTALLED_APPS = [
     ...
 ]
-NINJA_EXTRA={
-    'PAGINATION_CLASS': 'ninja_extra.pagination.PageNumberPaginationExtra'
+ninja_plus={
+    'PAGINATION_CLASS': 'ninja_plus.pagination.PageNumberPaginationExtra'
 }
 ```
 
 ## **Usage**
 ```python
 from typing import List
-from ninja_extra.pagination import (
+from ninja_plus.pagination import (
     paginate, PageNumberPaginationExtra, PaginatedResponseSchema
 )
-from ninja_extra import api_controller, route, NinjaExtraAPI
+from ninja_plus import api_controller, route, NinjaExtraAPI
 from ninja import ModelSchema
 from django.contrib.auth import get_user_model
 
@@ -67,7 +67,7 @@ class UserController:
     @route.get('/limit', response=List[UserSchema])
     @paginate
     def get_users_with_limit(self):
-        # this will use default paginator class - ninja_extra.pagination.LimitOffsetPagination
+        # this will use default paginator class - ninja_plus.pagination.LimitOffsetPagination
         return user_model.objects.all()
 
     
@@ -89,8 +89,8 @@ You can combine pagination with Django Ninja's `FilterSchema` to provide both fi
 ```python
 from typing import Optional
 from ninja import FilterSchema
-from ninja_extra.pagination import paginate, PageNumberPaginationExtra, PaginatedResponseSchema
-from ninja_extra import api_controller, route, NinjaExtraAPI
+from ninja_plus.pagination import paginate, PageNumberPaginationExtra, PaginatedResponseSchema
+from ninja_plus import api_controller, route, NinjaExtraAPI
 from ninja import ModelSchema
 from myapp.models import Book
 
@@ -165,9 +165,9 @@ FilterSchema can also be integrated with Model Controllers through the `ModelPag
 
 ```python
 from ninja import FilterSchema
-from ninja_extra.controllers import ModelControllerBase
-from ninja_extra.controllers.model import ModelConfig, ModelPagination
-from ninja_extra.pagination import PageNumberPaginationExtra
+from ninja_plus.controllers import ModelControllerBase
+from ninja_plus.controllers.model import ModelConfig, ModelPagination
+from ninja_plus.pagination import PageNumberPaginationExtra
 from myapp.models import Book
 
 

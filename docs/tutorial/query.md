@@ -5,7 +5,7 @@ For example:
 
 ```python hl_lines="7 10"
 from ninja import constants
-from ninja_extra import api_controller, route
+from ninja_plus import api_controller, route
 
 
 @api_controller('', tags=['My Operations'], auth=constants.NOT_SET, permissions=[])

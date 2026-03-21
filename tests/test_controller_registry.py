@@ -1,5 +1,5 @@
-from ninja_extra import ControllerBase, api_controller
-from ninja_extra.controllers.registry import ControllerRegistry
+from ninja_plus import ControllerBase, api_controller
+from ninja_plus.controllers.registry import ControllerRegistry
 
 
 @api_controller

@@ -4,7 +4,7 @@ from ninja.constants import NOT_SET, NOT_SET_TYPE
 from ninja.router import Router as NinjaRouter
 from ninja.throttling import BaseThrottle
 
-from ninja_extra.operation import PathView
+from ninja_plus.operation import PathView
 
 __all__ = ["Router"]
 

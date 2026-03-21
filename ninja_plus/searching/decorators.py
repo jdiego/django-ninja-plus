@@ -4,8 +4,8 @@ import typing as t
 from ninja.constants import NOT_SET
 from ninja.signature import is_async
 
-from ninja_extra.interfaces.searching import SearchingBase
-from ninja_extra.lazy import settings_lazy
+from ninja_plus.interfaces.searching import SearchingBase
+from ninja_plus.lazy import settings_lazy
 
 from .operations import (
     AsyncSearcheratorOperation,

@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 
 import pytest
 
-from ninja_extra.testing import TestClient
+from ninja_plus.testing import TestClient
 
 from .controllers import EventController, EventSchema
 from .models import Event

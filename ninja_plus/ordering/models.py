@@ -6,7 +6,7 @@ from django.db.models import QuerySet
 from ninja import Field, P, Query, Schema
 from pydantic import BaseModel
 
-from ninja_extra.interfaces.ordering import OrderingBase
+from ninja_plus.interfaces.ordering import OrderingBase
 
 logger = logging.getLogger()
 

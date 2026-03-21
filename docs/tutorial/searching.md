@@ -8,19 +8,19 @@
 
 `def searching(func_or_searching_class: Any = NOT_SET, **searching_params: Any) -> Callable[..., Any]:`
 
-- func_or_searching_class: Defines a route function or an Searching Class. default: `ninja_extra.searching.Searching`
+- func_or_searching_class: Defines a route function or an Searching Class. default: `ninja_plus.searching.Searching`
 - searching_params: extra parameters for initialising Searching Class
 
 ### Changing Default Searching Class
 
-To change the default searching class, you need to add a `NINJA_EXTRA` variable in `settings.py` with a key `SEARCHING_CLASS` and value defining path to searching class
+To change the default searching class, you need to add a `ninja_plus` variable in `settings.py` with a key `SEARCHING_CLASS` and value defining path to searching class
 
 ```python
 # Django project settings.py
 INSTALLED_APPS = [
     ...
 ]
-NINJA_EXTRA={
+ninja_plus={
     'SEARCHING_CLASS': 'someapp.somemodule.CustomSearching'
 }
 ```
@@ -45,8 +45,8 @@ NINJA_EXTRA={
 
 ```python
 from typing import List
-from ninja_extra.searching import searching, Searching
-from ninja_extra import api_controller, route, NinjaExtraAPI
+from ninja_plus.searching import searching, Searching
+from ninja_plus import api_controller, route, NinjaExtraAPI
 from ninja import ModelSchema
 from django.contrib.auth import get_user_model
 

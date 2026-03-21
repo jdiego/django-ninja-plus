@@ -25,14 +25,14 @@ def mock_signal_call(signal: str, called: bool = True):
         if is_async(func):
 
             async def _wrapper(*args, **kwargs):
-                with patch(f"ninja_extra.signals.{signal}.send") as mock_:
+                with patch(f"ninja_plus.signals.{signal}.send") as mock_:
                     await func(*args, **kwargs)
                     assert mock_.called == called
 
         else:
 
             def _wrapper(*args, **kwargs):
-                with patch(f"ninja_extra.signals.{signal}.send") as mock_:
+                with patch(f"ninja_plus.signals.{signal}.send") as mock_:
                     func(*args, **kwargs)
                     assert mock_.called == called
 
@@ -47,7 +47,7 @@ def mock_log_call(level: str, called: bool = True):
 
             async def _wrapper(*args, **kwargs):
                 with patch(
-                    f"ninja_extra.logger.request_logger.{level.lower()}"
+                    f"ninja_plus.logger.request_logger.{level.lower()}"
                 ) as mock_:
                     await func(*args, **kwargs)
                     assert mock_.called == called
@@ -56,7 +56,7 @@ def mock_log_call(level: str, called: bool = True):
 
             def _wrapper(*args, **kwargs):
                 with patch(
-                    f"ninja_extra.logger.request_logger.{level.lower()}"
+                    f"ninja_plus.logger.request_logger.{level.lower()}"
                 ) as mock_:
                     func(*args, **kwargs)
                     assert mock_.called == called

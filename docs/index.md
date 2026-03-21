@@ -59,7 +59,7 @@ uv add django-ninja-plus
 ```python
 INSTALLED_APPS = [
     ...,
-    'ninja_extra',
+    'ninja_plus',
 ]
 ```
 
@@ -70,7 +70,7 @@ INSTALLED_APPS = [
 Create `api.py` in your Django project:
 
 ```python
-from ninja_extra import NinjaExtraAPI, api_controller, http_get
+from ninja_plus import NinjaExtraAPI, api_controller, http_get
 
 api = NinjaExtraAPI()
 
@@ -114,8 +114,8 @@ urlpatterns = [
 ### Authentication and Permissions
 
 ```python
-from ninja_extra import api_controller, http_get
-from ninja_extra.permissions import IsAuthenticated, PermissionBase
+from ninja_plus import api_controller, http_get
+from ninja_plus.permissions import IsAuthenticated, PermissionBase
 
 # Custom permission
 class IsAdmin(PermissionBase):
@@ -137,7 +137,7 @@ class AdminController:
 
 ```python
 from injector import inject
-from ninja_extra import api_controller, http_get
+from ninja_plus import api_controller, http_get
 
 
 # Service class

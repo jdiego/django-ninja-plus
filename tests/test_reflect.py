@@ -1,6 +1,6 @@
 import pytest
 
-from ninja_extra.reflect import reflect
+from ninja_plus.reflect import reflect
 
 
 def test_define_metadata_creates_attribute_dict(random_type):

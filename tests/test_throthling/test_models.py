@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ImproperlyConfigured
 from django.http import HttpRequest
 
-from ninja_extra.conf import settings
-from ninja_extra.throttling import (
+from ninja_plus.conf import settings
+from ninja_plus.throttling import (
     AnonRateThrottle,
     DynamicRateThrottle,
     SimpleRateThrottle,

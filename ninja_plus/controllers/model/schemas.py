@@ -8,8 +8,8 @@ from pydantic import BaseModel as PydanticModel
 from pydantic import Field, field_validator
 from typing_extensions import Annotated
 
-from ninja_extra.conf.decorator import AllowTypeOfSource
-from ninja_extra.lazy import LazyStrImport
+from ninja_plus.conf.decorator import AllowTypeOfSource
+from ninja_plus.lazy import LazyStrImport
 
 try:
     from ninja_schema import __version__ as ninja_schema_version
@@ -31,8 +31,8 @@ except Exception:  # pragma: no cover
     NINJA_SCHEMA_VERSION: t.Tuple[int, int, int] = (0, 0, 0)  # type: ignore[no-redef]
 
 
-from ninja_extra.controllers.model.endpoints import ModelEndpointFactory
-from ninja_extra.pagination import PageNumberPaginationExtra, PaginatedResponseSchema
+from ninja_plus.controllers.model.endpoints import ModelEndpointFactory
+from ninja_plus.pagination import PageNumberPaginationExtra, PaginatedResponseSchema
 
 
 def _is_ninja_schema_version_supported() -> bool:
@@ -128,10 +128,10 @@ class ModelConfig(PydanticModel):
 
     # Route Endpoint Factory
     endpoint_factory: ModelEndpointFactoryType = Field(  # type: ignore[assignment]
-        "ninja_extra.controllers.model.endpoints.ModelEndpointFactory"
+        "ninja_plus.controllers.model.endpoints.ModelEndpointFactory"
     )
     async_endpoint_factory: ModelEndpointFactoryType = Field(  # type: ignore[assignment]
-        "ninja_extra.controllers.model.endpoints.ModelAsyncEndpointFactory"
+        "ninja_plus.controllers.model.endpoints.ModelAsyncEndpointFactory"
     )
 
     @field_validator("allowed_routes", mode="before")

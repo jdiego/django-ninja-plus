@@ -2,10 +2,10 @@ from typing import TYPE_CHECKING
 
 from django.http import HttpRequest
 
-from ninja_extra.permissions.base import SAFE_METHODS, BasePermission
+from ninja_plus.permissions.base import SAFE_METHODS, BasePermission
 
 if TYPE_CHECKING:
-    from ninja_extra.controllers.base import ControllerBase  # pragma: no cover
+    from ninja_plus.controllers.base import ControllerBase  # pragma: no cover
 
 
 class AllowAny(BasePermission):

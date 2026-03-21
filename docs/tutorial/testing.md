@@ -16,7 +16,7 @@ For example, to test a GET request to the `/users` endpoint, you can use the Tes
 ```python
 import pytest
 from .controllers import UserController
-from ninja_extra.testing import TestClient
+from ninja_plus.testing import TestClient
 
 
 @pytest.mark.django_db
@@ -35,8 +35,8 @@ class TestMyMathController:
 Similarly, for testing an asynchronous route function, you can use TestAsyncClient as follows:
 
 ```python
-from ninja_extra import api_controller, route
-from ninja_extra.testing import TestAsyncClient
+from ninja_plus import api_controller, route
+from ninja_plus.testing import TestAsyncClient
 
 
 @api_controller('', tags=['Math'])
@@ -61,8 +61,8 @@ class TestMyMathController:
 When using `TestClient`/`TestAsyncClient` with a controller class that has a static prefix, call endpoints using the route path defined on the method (without the static prefix). The testing client wires the controller under the hood and resolves routes accordingly.
 
 ```python
-from ninja_extra import api_controller, route
-from ninja_extra.testing import TestClient
+from ninja_plus import api_controller, route
+from ninja_plus.testing import TestClient
 
 
 @api_controller('/api', tags=['Users'])
@@ -93,8 +93,8 @@ If the controller prefix contains path parameters, include those parameters in t
 ```python
 import uuid
 from ninja import Schema
-from ninja_extra import api_controller, route
-from ninja_extra.testing import TestClient
+from ninja_plus import api_controller, route
+from ninja_plus.testing import TestClient
 
 
 class UserIn(Schema):

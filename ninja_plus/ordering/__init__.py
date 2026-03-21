@@ -1,4 +1,4 @@
-from ninja_extra.interfaces.ordering import OrderingBase
+from ninja_plus.interfaces.ordering import OrderingBase
 
 from .decorator import ordering
 from .models import Ordering

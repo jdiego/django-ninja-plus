@@ -5,7 +5,7 @@ from ninja.signature import is_async
 from ninja.throttling import BaseThrottle
 from ninja.types import TCallable
 
-from ninja_extra.constants import (
+from ninja_plus.constants import (
     DELETE,
     GET,
     OPERATION_ENDPOINT_KEY,
@@ -15,9 +15,9 @@ from ninja_extra.constants import (
     ROUTE_METHODS,
     ROUTE_OBJECT,
 )
-from ninja_extra.permissions import BasePermission
-from ninja_extra.reflect import reflect
-from ninja_extra.schemas import RouteParameter
+from ninja_plus.permissions import BasePermission
+from ninja_plus.reflect import reflect
+from ninja_plus.schemas import RouteParameter
 
 
 class RouteInvalidParameterException(Exception):
@@ -30,7 +30,7 @@ class Route(object):
 
     Example:
         ```python
-        from ninja_extra import api_controller
+        from ninja_plus import api_controller
 
         @api_controller
         class SampleController:

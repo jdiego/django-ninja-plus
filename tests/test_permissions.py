@@ -5,8 +5,8 @@ import pytest
 from asgiref.sync import sync_to_async
 from django.contrib.auth.models import AnonymousUser, User
 
-from ninja_extra import ControllerBase, api_controller, http_get, permissions
-from ninja_extra.testing import TestAsyncClient, TestClient
+from ninja_plus import ControllerBase, api_controller, http_get, permissions
+from ninja_plus.testing import TestAsyncClient, TestClient
 
 anonymous_request = Mock()
 anonymous_request.user = AnonymousUser()

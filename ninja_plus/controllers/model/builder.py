@@ -3,12 +3,12 @@ import typing as t
 from django.utils.module_loading import import_string
 from ninja.orm.fields import TYPES
 
-from ninja_extra.constants import ROUTE_OBJECT
-from ninja_extra.controllers.route.route_functions import (
+from ninja_plus.constants import ROUTE_OBJECT
+from ninja_plus.controllers.route.route_functions import (
     AsyncRouteFunction,
     RouteFunction,
 )
-from ninja_extra.reflect import reflect
+from ninja_plus.reflect import reflect
 
 from .endpoints import (
     ModelEndpointFactory,
@@ -25,8 +25,8 @@ def _resolve_factory(value: t.Any) -> t.Any:
 
 
 if t.TYPE_CHECKING:
-    from ninja_extra.controllers.base import APIController, ModelControllerBase
-    from ninja_extra.controllers.route import Route
+    from ninja_plus.controllers.base import APIController, ModelControllerBase
+    from ninja_plus.controllers.route import Route
 
 
 class ModelControllerBuilder:
@@ -83,7 +83,7 @@ class ModelControllerBuilder:
         kw = {
             "url_name": f"{self._model_name.lower()}-create",
             "description": f"Create {self._model_name} item",
-            "summary": "Create an item",
+            "summary": f"Create {self._model_name} item",
         }
         kw.update(self._config.create_route_info)
         create_item = self._route_factory.create(
@@ -102,7 +102,7 @@ class ModelControllerBuilder:
         kw = {
             "url_name": f"{self._model_name.lower()}-put",
             "description": f"""Update {self._model_name} item by {self._model_pk_name}""",
-            "summary": "Update an item",
+            "summary": f"Update {self._model_name} item",
         }
         kw.update(self._config.update_route_info)
 
@@ -126,7 +126,7 @@ class ModelControllerBuilder:
         kw = {
             "url_name": f"{self._model_name.lower()}-patch",
             "description": f"""Patch {self._model_name} item by {self._model_pk_name}""",
-            "summary": "Patch an item",
+            "summary": f"Patch {self._model_name} item",
         }
         kw.update(self._config.patch_route_info)
 
@@ -148,7 +148,7 @@ class ModelControllerBuilder:
         kw = {
             "url_name": f"{self._model_name.lower()}-get-item",
             "description": f"""Get {self._model_name} item by {self._model_pk_name}""",
-            "summary": "Get a specific item",
+            "summary": f"Get {self._model_name} item",
         }
         kw.update(self._config.find_one_route_info)
 
@@ -165,7 +165,7 @@ class ModelControllerBuilder:
         kw = {
             "description": f"List {self._model_name} model items",
             "url_name": f"{self._model_name.lower()}-list",
-            "summary": "List Items",
+            "summary": f"List {self._model_name} items",
         }
         kw.update(self._config.list_route_info)
         paginate_kwargs: t.Dict[str, t.Any] = {
@@ -200,7 +200,7 @@ class ModelControllerBuilder:
         kw = {
             "url_name": f"{self._model_name.lower()}-delete",
             "description": f"""Delete {self._model_name} item""",
-            "summary": "Delete an item",
+            "summary": f"Delete {self._model_name} item",
         }
         kw.update(self._config.delete_route_info)
 

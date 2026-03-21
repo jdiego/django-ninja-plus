@@ -10,7 +10,7 @@ Here's an example where the client, in order to authenticate, needs to pass a he
 
 ```Python
 from ninja.security import HttpBearer
-from ninja_extra import api_controller, route
+from ninja_plus import api_controller, route
 from ninja.constants import NOT_SET
 
 
@@ -33,7 +33,7 @@ In case you need to secure **all** route methods defined in `api` and APIControl
 
 
 ```Python
-from ninja_extra import NinjaExtraAPI
+from ninja_plus import NinjaExtraAPI
 from ninja.security import HttpBearer
 
 
@@ -50,15 +50,15 @@ Read more on django-ninja [authentication](https://django-ninja.rest-framework.c
 
 ## Asynchronous Auth Classes
 
-Ninja Extra added Asynchronous support for all `Auth` base classes provided by Django Ninja in `ninja_extra.security` package.
+Ninja Extra added Asynchronous support for all `Auth` base classes provided by Django Ninja in `ninja_plus.security` package.
 And it maintained similar interface. It is important to noted that when using these asynchronous auth classes, the endpoint handler 
 **must** asynchronous functions.
 
 For example, lets re-write the first auth example with `AsyncHttpBearer` class.
 
 ```Python
-from ninja_extra import api_controller, route
-from ninja_extra.security import AsyncHttpBearer
+from ninja_plus import api_controller, route
+from ninja_plus.security import AsyncHttpBearer
 from ninja.constants import NOT_SET
 
 

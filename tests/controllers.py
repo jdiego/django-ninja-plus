@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from ninja import Schema
 from ninja.params import Path
 
-from ninja_extra import api_controller, http_get, http_post
+from ninja_plus import api_controller, http_get, http_post
 
 from .models import Event
 

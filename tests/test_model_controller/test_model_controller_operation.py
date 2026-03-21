@@ -1,6 +1,6 @@
 import pytest
 
-from ninja_extra.testing import TestClient
+from ninja_plus.testing import TestClient
 
 from ..models import Event
 from .samples import (

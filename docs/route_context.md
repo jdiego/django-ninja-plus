@@ -21,8 +21,8 @@ class RouteContext(BaseModel):
 Within a controller class, you can access the `RouteContext` through `self.context`. Here's a complete example:
 
 ```python
-from ninja_extra import ControllerBase, api_controller, route
-from ninja_extra.permissions import IsAuthenticated
+from ninja_plus import ControllerBase, api_controller, route
+from ninja_plus.permissions import IsAuthenticated
 from ninja_jwt.authentication import JWTAuth
 
 @api_controller("/api", auth=JWTAuth(), permissions=[IsAuthenticated])
@@ -76,8 +76,8 @@ class HeaderController(ControllerBase):
 You can access the `RouteContext` during schema validation using the `service_resolver`. This is useful when you need request information during validation:
 
 ```python
-from ninja_extra import service_resolver
-from ninja_extra.context import RouteContext
+from ninja_plus import service_resolver
+from ninja_plus.context import RouteContext
 from ninja import ModelSchema
 from pydantic import field_validator
 from django.urls import reverse
@@ -105,8 +105,8 @@ class UserProfileSchema(ModelSchema):
 The `RouteContext` stores permission classes that apply to the current route. This is particularly useful when implementing custom permission logic:
 
 ```python
-from ninja_extra import api_controller, route
-from ninja_extra.permissions import BasePermission
+from ninja_plus import api_controller, route
+from ninja_plus.permissions import BasePermission
 
 class HasAPIKey(BasePermission):
     def has_permission(self, request, controller):

@@ -1,7 +1,7 @@
 import typing as t
 
-from ninja_extra.constants import API_CONTROLLER_INSTANCE
-from ninja_extra.reflect import reflect
+from ninja_plus.constants import API_CONTROLLER_INSTANCE
+from ninja_plus.reflect import reflect
 
 if t.TYPE_CHECKING:  # pragma: no cover
     from .base import APIController, ControllerBase

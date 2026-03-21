@@ -1,9 +1,9 @@
 import pytest
 from ninja_schema.errors import ConfigError
 
-from ninja_extra import ModelConfig, ModelPagination, ModelSchemaConfig
-from ninja_extra.pagination import PageNumberPaginationExtra
-from ninja_extra.schemas import PaginatedResponseSchema, RouteParameter
+from ninja_plus import ModelConfig, ModelPagination, ModelSchemaConfig
+from ninja_plus.pagination import PageNumberPaginationExtra
+from ninja_plus.schemas import PaginatedResponseSchema, RouteParameter
 
 from ..models import Event
 

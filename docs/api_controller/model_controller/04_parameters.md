@@ -9,7 +9,7 @@ Model Controllers in Ninja Extra provide flexible ways to handle path and query 
 Path parameters are part of the URL path and are typically used to identify specific resources:
 
 ```python
-from ninja_extra import ModelEndpointFactory, ModelControllerBase
+from ninja_plus import ModelEndpointFactory, ModelControllerBase
 
 @api_controller("/events")
 class EventModelController(ModelControllerBase):
@@ -65,7 +65,7 @@ Query parameters are added to the URL after the `?` character and are useful for
 
 ```python
 from typing import Optional
-from ninja_extra import ModelEndpointFactory
+from ninja_plus import ModelEndpointFactory
 
 @api_controller("/events")
 class EventModelController(ModelControllerBase):

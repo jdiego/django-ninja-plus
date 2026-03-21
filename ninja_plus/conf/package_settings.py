@@ -7,11 +7,11 @@ from ninja.throttling import BaseThrottle
 from pydantic import BaseModel, ConfigDict, Field
 from typing_extensions import Annotated
 
-from ninja_extra.conf.decorator import AllowTypeOfSource
-from ninja_extra.interfaces.ordering import OrderingBase
-from ninja_extra.interfaces.route_context import RouteContextBase
-from ninja_extra.interfaces.searching import SearchingBase
-from ninja_extra.lazy import LazyStrImport
+from ninja_plus.conf.decorator import AllowTypeOfSource
+from ninja_plus.interfaces.ordering import OrderingBase
+from ninja_plus.interfaces.route_context import RouteContextBase
+from ninja_plus.interfaces.searching import SearchingBase
+from ninja_plus.lazy import LazyStrImport
 
 _GenericModelValidator = AllowTypeOfSource(
     validator=lambda source, value: (
@@ -48,17 +48,17 @@ NinjaEXTRA_SETTINGS_DEFAULTS = {
     "INJECTOR_MODULES": [],
     "PAGINATION_CLASS": "ninja.pagination.LimitOffsetPagination",
     "THROTTLE_CLASSES": [
-        "ninja_extra.throttling.AnonRateThrottle",
-        "ninja_extra.throttling.UserRateThrottle",
+        "ninja_plus.throttling.AnonRateThrottle",
+        "ninja_plus.throttling.UserRateThrottle",
     ],
     "THROTTLE_RATES": {"user": None, "anon": None},
-    "ORDERING_CLASS": "ninja_extra.ordering.Ordering",
-    "SEARCHING_CLASS": "ninja_extra.searching.Searching",
-    "ROUTE_CONTEXT_CLASS": "ninja_extra.context.RouteContext",
+    "ORDERING_CLASS": "ninja_plus.ordering.Ordering",
+    "SEARCHING_CLASS": "ninja_plus.searching.Searching",
+    "ROUTE_CONTEXT_CLASS": "ninja_plus.context.RouteContext",
 }
 
 USER_SETTINGS = UserDefinedSettingsMapper(
-    getattr(django_settings, "NINJA_EXTRA", NinjaEXTRA_SETTINGS_DEFAULTS)
+    getattr(django_settings, "ninja_plus", NinjaEXTRA_SETTINGS_DEFAULTS)
 )
 
 
@@ -77,20 +77,20 @@ class NinjaExtraSettings(BaseModel):
     )
     THROTTLE_CLASSES: List[ThrottlingClassHandlerType] = Field(
         [
-            "ninja_extra.throttling.AnonRateThrottle",  # type: ignore[list-item]
-            "ninja_extra.throttling.UserRateThrottle",  # type: ignore[list-item]
+            "ninja_plus.throttling.AnonRateThrottle",  # type: ignore[list-item]
+            "ninja_plus.throttling.UserRateThrottle",  # type: ignore[list-item]
         ]
     )
     NUM_PROXIES: Optional[int] = None
     INJECTOR_MODULES: List[InjectorModuleHandlerType] = []
     ORDERING_CLASS: OrderingClassHandlerType = Field(  # type: ignore[assignment]
-        "ninja_extra.ordering.Ordering",
+        "ninja_plus.ordering.Ordering",
     )
     SEARCHING_CLASS: SearchingClassHandlerType = Field(  # type: ignore[assignment]
-        "ninja_extra.searching.Searching",
+        "ninja_plus.searching.Searching",
     )
     ROUTE_CONTEXT_CLASS: RouteContextHandlerType = Field(  # type: ignore[assignment]
-        "ninja_extra.context.RouteContext",
+        "ninja_plus.context.RouteContext",
     )
 
 
@@ -102,7 +102,7 @@ def reload_settings(*args: Any, **kwargs: Any) -> None:  # pragma: no cover
 
     setting, value = kwargs["setting"], kwargs["value"]
 
-    if setting == "NINJA_EXTRA":
+    if setting == "ninja_plus":
         settings = NinjaExtraSettings.model_validate(UserDefinedSettingsMapper(value))
 
 

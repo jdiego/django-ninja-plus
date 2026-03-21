@@ -1,4 +1,4 @@
-from ninja_extra.throttling import UserRateThrottle
+from ninja_plus.throttling import UserRateThrottle
 
 
 class User3SecRateThrottle(UserRateThrottle):

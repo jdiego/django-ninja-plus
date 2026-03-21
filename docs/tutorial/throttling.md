@@ -4,8 +4,8 @@ Throttling can be seen as a permission that determines if a request should be au
 It indicates a temporary state used to control the rate of requests that clients can make to an API.
 
 ```python
-from ninja_extra import NinjaExtraAPI
-from ninja_extra.throttling import UserRateThrottle, AnonRateThrottle
+from ninja_plus import NinjaExtraAPI
+from ninja_plus.throttling import UserRateThrottle, AnonRateThrottle
 api = NinjaExtraAPI()
 
 @api.get('/users', throttle=[AnonRateThrottle(), UserRateThrottle()])
@@ -23,8 +23,8 @@ constraints, which could be burst throttling rate or sustained throttling rates,
 for example, you might want to limit a user to a maximum of 60 requests per minute, and 1000 requests per day.
 
 ```python
-from ninja_extra import NinjaExtraAPI
-from ninja_extra.throttling import UserRateThrottle
+from ninja_plus import NinjaExtraAPI
+from ninja_plus.throttling import UserRateThrottle
 api = NinjaExtraAPI()
 
 class User60MinRateThrottle(UserRateThrottle):
@@ -45,7 +45,7 @@ def my_throttled_endpoint(request):
 You can set globally default throttling classes and rates in your project `settings.py` by overriding the keys below:
 ```python
 # django settings.py
-NINJA_EXTRA = {
+ninja_plus = {
     'THROTTLE_RATES': {
         'user': '1000/day',
         'anon': '100/day',
@@ -56,8 +56,8 @@ NINJA_EXTRA = {
 The rate descriptions used in `THROTTLE_RATES` may include `second`, `minute`, `hour` or `day` as the throttle period.
 
 ```python
-from ninja_extra import NinjaExtraAPI
-from ninja_extra.throttling import UserRateThrottle
+from ninja_plus import NinjaExtraAPI
+from ninja_plus.throttling import UserRateThrottle
 
 api = NinjaExtraAPI()
 
@@ -87,7 +87,7 @@ If you dont want to use the default cache defined in throttle model, here is an 
 ```python
 
 from django.core.cache import caches
-from ninja_extra.throttling import AnonRateThrottle
+from ninja_plus.throttling import AnonRateThrottle
 
 
 class CustomAnonRateThrottle(AnonRateThrottle):
@@ -101,7 +101,7 @@ It is suitable for restricting rate of requests from an unknown source
 
 Request Permission is determined by:
 - `rate` defined in derived class
-- `anon` scope defined in `THROTTLE_RATES` in `NINJA_EXTRA` settings in `settings.py` 
+- `anon` scope defined in `THROTTLE_RATES` in `ninja_plus` settings in `settings.py` 
 
 ## **UserRateThrottle**
 `UserRateThrottle` model is for throttling authenticated users using user id or pk to generate a key to throttle against.
@@ -109,12 +109,12 @@ Unauthenticated requests will fall back to using the IP address of the incoming 
 
 Request Permission is determined by:
 - `rate` defined in derived class
-- `user` scope defined in `THROTTLE_RATES` in `NINJA_EXTRA` settings in `settings.py` 
+- `user` scope defined in `THROTTLE_RATES` in `ninja_plus` settings in `settings.py` 
 
 You can use multiple user throttle rates for a `UserRateThrottle` model, for example:
 ```python
 # example/throttles.py
-from ninja_extra.throttling import UserRateThrottle
+from ninja_plus.throttling import UserRateThrottle
 
 
 class BurstRateThrottle(UserRateThrottle):
@@ -127,7 +127,7 @@ class SustainedRateThrottle(UserRateThrottle):
 
 ```python
 # django settings.py
-NINJA_EXTRA = {
+ninja_plus = {
     'THROTTLE_RATES': {
         'burst': '60/min',
         'sustained': '1000/day'
@@ -142,7 +142,7 @@ we can defined a scope in settings
 
 ```python
 # django settings.py
-NINJA_EXTRA = {
+ninja_plus = {
     'THROTTLE_RATES': {
         'burst': '60/min',
         'sustained': '1000/day'
@@ -152,8 +152,8 @@ NINJA_EXTRA = {
 
 ```python
 # api.py
-from ninja_extra import NinjaExtraAPI
-from ninja_extra.throttling import DynamicRateThrottle
+from ninja_plus import NinjaExtraAPI
+from ninja_plus.throttling import DynamicRateThrottle
 api = NinjaExtraAPI()
 
 @api.get('/users', throttle=DynamicRateThrottle(scope='burst'))
@@ -174,11 +174,11 @@ Here, we dynamically applied `sustained` rates and `burst` rates to `get_users` 
 
 ```python
 # api.py
-from ninja_extra import (
+from ninja_plus import (
     NinjaExtraAPI, api_controller, ControllerBase,
     http_get
 )
-from ninja_extra.throttling import DynamicRateThrottle
+from ninja_plus.throttling import DynamicRateThrottle
 api = NinjaExtraAPI()
 
 @api_controller("/throttled-controller", throttle=[DynamicRateThrottle(scope="sustained")])

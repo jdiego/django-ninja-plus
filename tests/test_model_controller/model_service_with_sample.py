@@ -3,9 +3,9 @@ from typing import Any
 from injector import inject
 from pydantic import BaseModel
 
-from ninja_extra import ModelService
-from ninja_extra.controllers.base import ModelControllerBase, api_controller
-from ninja_extra.controllers.model.schemas import ModelConfig
+from ninja_plus import ModelService
+from ninja_plus.controllers.base import ModelControllerBase, api_controller
+from ninja_plus.controllers.model.schemas import ModelConfig
 
 from ..models import Event
 

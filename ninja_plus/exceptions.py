@@ -11,7 +11,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.translation import ngettext
 from ninja.errors import HttpError
 
-from ninja_extra import status
+from ninja_plus import status
 
 
 @no_type_check
@@ -137,7 +137,7 @@ class APIException(HttpError):
 # in order to minimize potential confusion with Django's
 # built in `ValidationError`. For example:
 #
-# from ninja_extra import exceptions
+# from ninja_plus import exceptions
 # raise exceptions.ValidationError('Value was invalid')
 
 

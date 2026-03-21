@@ -4,7 +4,7 @@ from uuid import UUID
 from django.urls import register_converter
 from ninja import Field, Path, Query, Schema
 
-from ninja_extra import api_controller, route
+from ninja_plus import api_controller, route
 
 
 class CustomPathConverter1:

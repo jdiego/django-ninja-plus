@@ -4,13 +4,13 @@ import django
 import pytest
 from ninja import Body, Schema
 
-from ninja_extra import api_controller, http_delete, http_get, http_post, route, status
-from ninja_extra.constants import ROUTE_OBJECT
-from ninja_extra.controllers import AsyncRouteFunction, RouteFunction
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.operation import AsyncOperation, Operation
-from ninja_extra.reflect import reflect
-from ninja_extra.testing import TestAsyncClient, TestClient
+from ninja_plus import api_controller, http_delete, http_get, http_post, route, status
+from ninja_plus.constants import ROUTE_OBJECT
+from ninja_plus.controllers import AsyncRouteFunction, RouteFunction
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.operation import AsyncOperation, Operation
+from ninja_plus.reflect import reflect
+from ninja_plus.testing import TestAsyncClient, TestClient
 
 from .utils import AsyncFakeAuth, FakeAuth, mock_log_call
 

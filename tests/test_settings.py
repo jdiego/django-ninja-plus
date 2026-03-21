@@ -1,11 +1,11 @@
 import pytest
 
-from ninja_extra.conf import settings
-from ninja_extra.context import RouteContext
-from ninja_extra.interfaces.ordering import OrderingBase
-from ninja_extra.interfaces.searching import SearchingBase
-from ninja_extra.pagination import PageNumberPaginationExtra
-from ninja_extra.throttling import BaseThrottle
+from ninja_plus.conf import settings
+from ninja_plus.context import RouteContext
+from ninja_plus.interfaces.ordering import OrderingBase
+from ninja_plus.interfaces.searching import SearchingBase
+from ninja_plus.pagination import PageNumberPaginationExtra
+from ninja_plus.throttling import BaseThrottle
 
 
 class CustomPaginationImport(PageNumberPaginationExtra):

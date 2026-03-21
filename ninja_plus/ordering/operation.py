@@ -5,15 +5,15 @@ from functools import wraps
 from asgiref.sync import sync_to_async
 from django.http import HttpRequest
 
-from ninja_extra.constants import ORDERATOR_OBJECT
-from ninja_extra.interfaces.ordering import OrderingBase
-from ninja_extra.reflect import reflect
-from ninja_extra.shortcuts import add_ninja_contribute_args
+from ninja_plus.constants import ORDERATOR_OBJECT
+from ninja_plus.interfaces.ordering import OrderingBase
+from ninja_plus.reflect import reflect
+from ninja_plus.shortcuts import add_ninja_contribute_args
 
 logger = logging.getLogger()
 
 if t.TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.controllers.base import ControllerBase
+    from ninja_plus.controllers.base import ControllerBase
 
 
 class OrderatorOperation:

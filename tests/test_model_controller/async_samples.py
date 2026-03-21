@@ -1,7 +1,7 @@
 from asgiref.sync import sync_to_async
 from ninja.pagination import LimitOffsetPagination
 
-from ninja_extra import (
+from ninja_plus import (
     ModelAsyncEndpointFactory,
     ModelConfig,
     ModelControllerBase,
@@ -9,7 +9,7 @@ from ninja_extra import (
     ModelSchemaConfig,
     api_controller,
 )
-from ninja_extra.schemas import NinjaPaginationResponseSchema
+from ninja_plus.schemas import NinjaPaginationResponseSchema
 
 from ..models import Event
 from .samples import CreateEventSchema, EventSchema, EventSchemaWithPrefix

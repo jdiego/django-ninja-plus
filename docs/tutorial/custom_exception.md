@@ -5,8 +5,8 @@ So in that sense, **Django-Ninja-Extra** has an `APIException` exception type wh
 
 For Example: 
 ```python
-from ninja_extra.exceptions import APIException
-from ninja_extra import api_controller, route, NinjaExtraAPI, status
+from ninja_plus.exceptions import APIException
+from ninja_plus import api_controller, route, NinjaExtraAPI, status
 from ninja import constants
 
 

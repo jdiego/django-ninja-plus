@@ -2,8 +2,8 @@ import sys
 
 import pytest
 
-from ninja_extra.generic import GenericType
-from ninja_extra.schemas.response import (
+from ninja_plus.generic import GenericType
+from ninja_plus.schemas.response import (
     NinjaPaginationResponseSchema,
     PaginatedResponseSchema,
 )

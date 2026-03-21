@@ -7,7 +7,7 @@ The Model Service layer in Ninja Extra handles all CRUD operations for your mode
 The default `ModelService` implements both synchronous and asynchronous operations:
 
 ```python
-from ninja_extra.controllers.model.interfaces import ModelServiceBase, AsyncModelServiceBase
+from ninja_plus.controllers.model.interfaces import ModelServiceBase, AsyncModelServiceBase
 
 class ModelService(ModelServiceBase, AsyncModelServiceBase):
     def __init__(self, model):
@@ -40,7 +40,7 @@ Here's how to create a custom service with additional business logic:
 ```python
 from typing import Any, List, Union
 from django.db.models import QuerySet
-from ninja_extra import ModelService
+from ninja_plus import ModelService
 from pydantic import BaseModel
 
 class EventModelService(ModelService):
@@ -78,7 +78,7 @@ class EventModelService(ModelService):
 For async operations, you can customize the async methods:
 
 ```python
-from ninja_extra import ModelService
+from ninja_plus import ModelService
 from asgiref.sync import sync_to_async
 
 
@@ -138,7 +138,7 @@ Model Services support dependency injection, allowing you to inject other servic
 from datetime import datetime
 from typing import Any, Optional
 from django.core.mail import send_mail
-from ninja_extra import ModelService, api_controller, ModelConfig
+from ninja_plus import ModelService, api_controller, ModelConfig
 from pydantic import BaseModel
 from injector import inject
 
@@ -270,8 +270,8 @@ class EventModelService(ModelService):
 
 Creating `EventModelController` with `EventModelService` as the service.
 ```python
-from ninja_extra.controllers import ModelEndpointFactory, ModelControllerBase, ModelConfig
-from ninja_extra import api_controller
+from ninja_plus.controllers import ModelEndpointFactory, ModelControllerBase, ModelConfig
+from ninja_plus import api_controller
 
 @api_controller("/events")
 class EventModelController(ModelControllerBase):
@@ -307,7 +307,7 @@ class EventModule(Module):
 
 ## settings.py
 ```python
-NINJA_EXTRA = {
+ninja_plus = {
     'INJECTOR_MODULES': [
         'your_app.injector_module.EventModule'
     ]

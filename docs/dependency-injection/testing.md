@@ -27,7 +27,7 @@ your_project/
 ```python
 from .base import *
 
-NINJA_EXTRA = {
+ninja_plus = {
     'INJECTOR_MODULES': [
         'your_app.modules.TodoModule'  # Uses real implementation
     ]
@@ -38,7 +38,7 @@ NINJA_EXTRA = {
 ```python
 from .base import *
 
-NINJA_EXTRA = {
+ninja_plus = {
     'INJECTOR_MODULES': [
         'your_app.modules.MockTodoModule'  # Uses mock implementation
     ]
@@ -89,12 +89,12 @@ class MockTodoModule(Module):
 
 ## **Running Tests**
 
-After setting up your mock services and configuring your test environment, you can write tests using for the controller using the `TestClient` from `ninja_extra.testing`. As shown in the example below:
+After setting up your mock services and configuring your test environment, you can write tests using for the controller using the `TestClient` from `ninja_plus.testing`. As shown in the example below:
 
 ```python
 # tests/test_todo_api.py
 import pytest
-from ninja_extra import testing
+from ninja_plus import testing
 from your_app.controllers import TodoController
 
 @pytest.mark.django_db

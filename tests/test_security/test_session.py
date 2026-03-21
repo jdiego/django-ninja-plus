@@ -5,7 +5,7 @@ from asgiref.sync import sync_to_async
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.http import HttpRequest
 
-from ninja_extra.security import async_django_auth
+from ninja_plus.security import async_django_auth
 
 
 @pytest.mark.asyncio

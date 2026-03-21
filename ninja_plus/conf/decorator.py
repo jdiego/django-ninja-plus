@@ -5,8 +5,8 @@ from pydantic import GetCoreSchemaHandler, GetJsonSchemaHandler
 from pydantic.json_schema import JsonSchemaValue
 from pydantic_core.core_schema import CoreSchema, with_info_plain_validator_function
 
-from ninja_extra.lazy import LazyStrImport
-from ninja_extra.shortcuts import fail_silently
+from ninja_plus.lazy import LazyStrImport
+from ninja_plus.shortcuts import fail_silently
 
 
 class AllowTypeOfSource:

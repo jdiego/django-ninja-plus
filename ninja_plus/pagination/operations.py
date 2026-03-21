@@ -14,13 +14,13 @@ from django.http import HttpRequest
 from ninja import FilterSchema, Query
 from ninja.pagination import AsyncPaginationBase, PaginationBase
 
-from ninja_extra.constants import PAGINATOR_OBJECT
-from ninja_extra.context import RouteContext
-from ninja_extra.reflect import reflect
-from ninja_extra.shortcuts import add_ninja_contribute_args
+from ninja_plus.constants import PAGINATOR_OBJECT
+from ninja_plus.context import RouteContext
+from ninja_plus.reflect import reflect
+from ninja_plus.shortcuts import add_ninja_contribute_args
 
 if TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.controllers import ControllerBase
+    from ninja_plus.controllers import ControllerBase
 
 import django
 

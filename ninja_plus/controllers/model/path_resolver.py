@@ -9,7 +9,7 @@ from ninja import Query, Schema
 from ninja.params import Path
 from pydantic import UUID4, create_model
 
-from ninja_extra.shortcuts import add_ninja_contribute_args
+from ninja_plus.shortcuts import add_ninja_contribute_args
 
 # Match parameters in URL paths, eg. '{param}', and '{int:param}'
 PARAM_REGEX = re.compile("{([a-zA-Z_][a-zA-Z0-9_]*:)?([a-zA-Z_][a-zA-Z0-9_]*)}")

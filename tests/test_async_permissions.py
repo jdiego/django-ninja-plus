@@ -4,7 +4,7 @@ import pytest
 from django.contrib.auth.models import AnonymousUser
 from injector import inject
 
-from ninja_extra import (
+from ninja_plus import (
     ControllerBase,
     api_controller,
     get_injector,
@@ -12,8 +12,8 @@ from ninja_extra import (
     http_post,
     permissions,
 )
-from ninja_extra.permissions.base import AsyncBasePermission
-from ninja_extra.testing import TestAsyncClient
+from ninja_plus.permissions.base import AsyncBasePermission
+from ninja_plus.testing import TestAsyncClient
 
 
 # Create mock requests for testing

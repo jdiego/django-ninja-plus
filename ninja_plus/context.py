@@ -7,13 +7,13 @@ from django.http.request import HttpRequest
 from ninja.errors import ValidationError
 from ninja.types import DictStrAny
 
-from ninja_extra.interfaces.route_context import RouteContextBase
-from ninja_extra.lazy import settings_lazy
-from ninja_extra.permissions import BasePermissionType
+from ninja_plus.interfaces.route_context import RouteContextBase
+from ninja_plus.lazy import settings_lazy
+from ninja_plus.permissions import BasePermissionType
 
 if t.TYPE_CHECKING:
-    from ninja_extra.details import ViewSignature
-    from ninja_extra.main import NinjaExtraAPI
+    from ninja_plus.details import ViewSignature
+    from ninja_plus.main import NinjaExtraAPI
 
 
 class RouteContext(RouteContextBase):

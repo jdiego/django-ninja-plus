@@ -6,18 +6,18 @@ from typing import TYPE_CHECKING, Any, Callable, Iterator, Optional, Tuple, cast
 from django.http import HttpRequest, HttpResponse
 from typing_extensions import deprecated
 
-from ninja_extra.constants import ROUTE_OBJECT_FUNCTION
-from ninja_extra.context import (
+from ninja_plus.constants import ROUTE_OBJECT_FUNCTION
+from ninja_plus.context import (
     RouteContext,
     get_route_execution_context,
 )
-from ninja_extra.dependency_resolver import get_injector, service_resolver
-from ninja_extra.reflect import reflect
+from ninja_plus.dependency_resolver import get_injector, service_resolver
+from ninja_plus.reflect import reflect
 
 if TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.controllers.base import APIController, ControllerBase
-    from ninja_extra.controllers.route import Route
-    from ninja_extra.operation import Operation
+    from ninja_plus.controllers.base import APIController, ControllerBase
+    from ninja_plus.controllers.route import Route
+    from ninja_plus.operation import Operation
 
 
 class RouteFunctionContext:
@@ -114,7 +114,7 @@ class RouteFunction(object):
         return as_view
 
     def _get_controller_instance(self) -> "ControllerBase":
-        from ninja_extra.controllers.base import ModelControllerBase
+        from ninja_plus.controllers.base import ModelControllerBase
 
         injector = get_injector()
         additional_kwargs = {}

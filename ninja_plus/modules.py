@@ -4,7 +4,7 @@ from typing import Optional
 from django.conf import Settings, settings
 from injector import Binder, Module, singleton
 
-from ninja_extra.context import RouteContext
+from ninja_plus.context import RouteContext
 
 from .constants import ROUTE_CONTEXT_VAR
 
@@ -12,8 +12,8 @@ from .constants import ROUTE_CONTEXT_VAR
 # def route_context_handler(
 #     *args: Any, route_context: Optional[RouteContext] = None, **kwargs: Any
 # ) -> None:
-#     app = cast(Any, apps.get_app_config("ninja_extra"))
-#     app.ninja_extra_module.set_route_context(route_context)
+#     app = cast(Any, apps.get_app_config("ninja_plus"))
+#     app.ninja_plus_module.set_route_context(route_context)
 
 
 class NinjaExtraModule(Module):

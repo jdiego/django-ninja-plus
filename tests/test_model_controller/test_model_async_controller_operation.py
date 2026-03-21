@@ -1,9 +1,9 @@
 import pytest
 from asgiref.sync import sync_to_async
 
-from ninja_extra.controllers.base import APIController
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.testing import TestAsyncClient
+from ninja_plus.controllers.base import APIController
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.testing import TestAsyncClient
 
 from ..models import Event
 from .async_samples import (

@@ -5,21 +5,21 @@ import pytest
 from django.contrib.auth.models import Group
 from django.urls import reverse
 
-from ninja_extra import (
+from ninja_plus import (
     NinjaExtraAPI,
     api_controller,
     exceptions,
     http_get,
     testing,
 )
-from ninja_extra.context import RouteContext
-from ninja_extra.controllers import ControllerBase, RouteFunction
-from ninja_extra.controllers.base import (
+from ninja_plus.context import RouteContext
+from ninja_plus.controllers import ControllerBase, RouteFunction
+from ninja_plus.controllers.base import (
     APIController,
     get_route_functions,
 )
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.permissions.common import AllowAny
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.permissions.common import AllowAny
 
 from .utils import AsyncFakeAuth, FakeAuth
 
@@ -115,7 +115,7 @@ class TestAPIController:
         api_controller_instance = get_api_controller(controller_type)
         assert api_controller_instance.prefix == ""
         assert api_controller_instance.tags == ["any2"]
-        assert "ninja_extra.controllers.base" in SomeController.__module__
+        assert "ninja_plus.controllers.base" in SomeController.__module__
         assert "tests.test_controller" in Some2Controller.__module__
         assert get_api_controller(Some2Controller)
 

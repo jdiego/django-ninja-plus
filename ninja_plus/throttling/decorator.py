@@ -3,8 +3,8 @@ from typing import Any, Callable, List, Type, Union, cast
 
 from ninja.throttling import BaseThrottle
 
-from ninja_extra.constants import THROTTLED_FUNCTION, THROTTLED_OBJECTS
-from ninja_extra.lazy import settings_lazy
+from ninja_plus.constants import THROTTLED_FUNCTION, THROTTLED_OBJECTS
+from ninja_plus.lazy import settings_lazy
 
 
 def throttle(

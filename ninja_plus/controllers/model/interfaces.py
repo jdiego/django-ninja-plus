@@ -5,7 +5,7 @@ from django.db.models import Model as DjangoModel
 from django.db.models import QuerySet
 from pydantic import BaseModel as PydanticModel
 
-from ninja_extra.exceptions import APIException, NotFound
+from ninja_plus.exceptions import APIException, NotFound
 
 
 class AsyncModelServiceBase(ABC):

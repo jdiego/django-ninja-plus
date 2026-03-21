@@ -39,7 +39,7 @@ class Event(models.Model):
 To create a basic Model Controller for the Event model:
 
 ```python
-from ninja_extra import (
+from ninja_plus import (
     ModelConfig,
     ModelControllerBase,
     api_controller,

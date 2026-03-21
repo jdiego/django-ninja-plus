@@ -24,7 +24,7 @@ The permission system in Django Ninja Extra has been redesigned to seamlessly in
 To create a custom async permission, inherit from `AsyncBasePermission` and implement the `has_permission_async` method:
 
 ```python
-from ninja_extra.permissions import AsyncBasePermission
+from ninja_plus.permissions import AsyncBasePermission
 
 class IsUserPremiumAsync(AsyncBasePermission):
     async def has_permission_async(self, request, controller):
@@ -44,8 +44,8 @@ class IsUserPremiumAsync(AsyncBasePermission):
 Django Ninja Extra's permission system automatically handles both sync and async operations for built-in permissions:
 
 ```python
-from ninja_extra import api_controller, http_get
-from ninja_extra.permissions import IsAuthenticated, IsAdminUser
+from ninja_plus import api_controller, http_get
+from ninja_plus.permissions import IsAuthenticated, IsAdminUser
 
 @api_controller(permissions=[IsAuthenticated])
 class UserController:
@@ -61,8 +61,8 @@ class UserController:
 The permission system supports combining permissions using logical operators (`&`, `|`, `~`):
 
 ```python
-from ninja_extra import api_controller, http_get
-from ninja_extra.permissions import IsAuthenticated, IsAdminUser, AsyncBasePermission
+from ninja_plus import api_controller, http_get
+from ninja_plus.permissions import IsAuthenticated, IsAdminUser, AsyncBasePermission
 
 # Custom async permission
 class HasPremiumSubscriptionAsync(AsyncBasePermission):
@@ -104,8 +104,8 @@ The operators intelligently dispatch to either `has_permission`/`has_object_perm
 You can seamlessly mix regular permissions with async permissions:
 
 ```python
-from ninja_extra import api_controller, http_get
-from ninja_extra.permissions import IsAuthenticated, IsAdminUser, AsyncBasePermission
+from ninja_plus import api_controller, http_get
+from ninja_plus.permissions import IsAuthenticated, IsAdminUser, AsyncBasePermission
 
 # Custom async permission
 class IsProjectMemberAsync(AsyncBasePermission):
@@ -159,8 +159,8 @@ Django Ninja Extra's permission system now integrates with dependency injection:
 
 ```python
 from injector import inject
-from ninja_extra import api_controller, http_get, service_resolver
-from ninja_extra.permissions import AsyncBasePermission
+from ninja_plus import api_controller, http_get, service_resolver
+from ninja_plus.permissions import AsyncBasePermission
 
 class FeatureService:
     def has_feature_access(self, user, feature):
@@ -232,8 +232,8 @@ This resolution process is handled by the `_get_permission_object` method in the
 ```python
 from django.contrib.auth.models import User
 from asgiref.sync import sync_to_async
-from ninja_extra import api_controller, http_get, http_post, ControllerBase
-from ninja_extra.permissions import AsyncBasePermission, IsAuthenticated, AllowAny
+from ninja_plus import api_controller, http_get, http_post, ControllerBase
+from ninja_plus.permissions import AsyncBasePermission, IsAuthenticated, AllowAny
 
 # Custom async permission
 class IsStaffOrOwnerAsync(AsyncBasePermission):
@@ -286,7 +286,7 @@ Testing async permissions is straightforward using pytest-asyncio:
 import pytest
 from unittest.mock import Mock
 from django.contrib.auth.models import AnonymousUser
-from ninja_extra.permissions import AsyncBasePermission, IsAdminUser
+from ninja_plus.permissions import AsyncBasePermission, IsAdminUser
 
 # Custom async permission for testing
 class CustomAsyncPermission(AsyncBasePermission):

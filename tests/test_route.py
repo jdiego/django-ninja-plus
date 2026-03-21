@@ -6,20 +6,20 @@ from django.contrib.auth.models import AnonymousUser, User
 from ninja import Schema
 from ninja.constants import NOT_SET
 
-from ninja_extra import api_controller, permissions, route
-from ninja_extra.constants import ROUTE_OBJECT
-from ninja_extra.context import (
+from ninja_plus import api_controller, permissions, route
+from ninja_plus.constants import ROUTE_OBJECT
+from ninja_plus.context import (
     get_route_execution_context,
 )
-from ninja_extra.controllers import (
+from ninja_plus.controllers import (
     AsyncRouteFunction,
     RouteFunction,
     RouteInvalidParameterException,
 )
-from ninja_extra.controllers.base import get_route_functions
-from ninja_extra.controllers.utils import get_api_controller
-from ninja_extra.exceptions import PermissionDenied
-from ninja_extra.reflect import reflect
+from ninja_plus.controllers.base import get_route_functions
+from ninja_plus.controllers.utils import get_api_controller
+from ninja_plus.exceptions import PermissionDenied
+from ninja_plus.reflect import reflect
 
 from .schemas import UserSchema
 from .utils import FakeAuth

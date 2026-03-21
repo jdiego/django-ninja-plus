@@ -5,8 +5,8 @@ from asgiref.sync import sync_to_async
 from django.db.models import Model, QuerySet
 from pydantic import BaseModel as PydanticModel
 
-from ninja_extra.exceptions import APIException, NotFound
-from ninja_extra.shortcuts import get_object_or_exception
+from ninja_plus.exceptions import APIException, NotFound
+from ninja_plus.shortcuts import get_object_or_exception
 
 from .interfaces import AsyncModelServiceBase, ModelServiceBase
 

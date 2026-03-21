@@ -9,10 +9,10 @@ from abc import ABC, ABCMeta, abstractmethod
 from django.http import HttpRequest
 from injector import is_decorated_with_inject
 
-from ninja_extra.threading import execute_coroutine
+from ninja_plus.threading import execute_coroutine
 
 if t.TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.controllers.base import ControllerBase  # pragma: no cover
+    from ninja_plus.controllers.base import ControllerBase  # pragma: no cover
 
 SAFE_METHODS = ("GET", "HEAD", "OPTIONS")
 
@@ -82,7 +82,7 @@ class BasePermission(
 
     @classmethod
     def resolve(cls) -> t.Union["BasePermission", "AsyncBasePermission"]:
-        from ninja_extra import service_resolver
+        from ninja_plus import service_resolver
 
         if is_decorated_with_inject(getattr(cls, "__init__", cls)):
             return service_resolver(  # type: ignore[return-value]
@@ -159,7 +159,7 @@ class _OperandResolversMixin:
     def _get_permission_object(
         self, permission: BasePermissionType
     ) -> t.Union[BasePermission, AsyncBasePermission]:
-        from ninja_extra import service_resolver
+        from ninja_plus import service_resolver
 
         if isinstance(permission, type) and is_decorated_with_inject(
             getattr(permission, "__init__", permission)

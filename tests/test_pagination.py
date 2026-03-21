@@ -5,10 +5,10 @@ import django
 import pytest
 from ninja import FilterSchema, NinjaAPI, Schema
 
-from ninja_extra import NinjaExtraAPI, api_controller, route
-from ninja_extra.constants import PAGINATOR_OBJECT
-from ninja_extra.controllers import RouteFunction
-from ninja_extra.pagination import (
+from ninja_plus import NinjaExtraAPI, api_controller, route
+from ninja_plus.constants import PAGINATOR_OBJECT
+from ninja_plus.controllers import RouteFunction
+from ninja_plus.pagination import (
     AsyncPaginatorOperation,
     PageNumberPagination,
     PageNumberPaginationExtra,
@@ -16,8 +16,8 @@ from ninja_extra.pagination import (
     PaginatorOperation,
     paginate,
 )
-from ninja_extra.schemas import NinjaPaginationResponseSchema
-from ninja_extra.testing import TestAsyncClient, TestClient
+from ninja_plus.schemas import NinjaPaginationResponseSchema
+from ninja_plus.testing import TestAsyncClient, TestClient
 
 ITEMS = list(range(100))
 

@@ -1,10 +1,10 @@
 from typing import TYPE_CHECKING, Dict, Optional, Type, cast
 
-from ninja_extra.constants import API_CONTROLLER_INSTANCE
-from ninja_extra.reflect import reflect
+from ninja_plus.constants import API_CONTROLLER_INSTANCE
+from ninja_plus.reflect import reflect
 
 if TYPE_CHECKING:  # pragma: no cover
-    from ninja_extra.controllers.base import (
+    from ninja_plus.controllers.base import (
         APIController,
         ControllerBase,
     )  # pragma: no cover

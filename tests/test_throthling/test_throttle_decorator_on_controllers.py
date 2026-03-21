@@ -3,9 +3,9 @@ import uuid
 import django
 import pytest
 
-from ninja_extra import api_controller, http_get, throttle
-from ninja_extra.testing import TestAsyncClient, TestClient
-from ninja_extra.throttling import (
+from ninja_plus import api_controller, http_get, throttle
+from ninja_plus.testing import TestAsyncClient, TestClient
+from ninja_plus.throttling import (
     AnonRateThrottle,
     DynamicRateThrottle,
     UserRateThrottle,

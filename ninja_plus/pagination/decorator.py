@@ -7,8 +7,8 @@ from ninja.constants import NOT_SET
 from ninja.pagination import PaginationBase
 from ninja.signature import is_async
 
-from ninja_extra.lazy import settings_lazy
-from ninja_extra.pagination.operations import (
+from ninja_plus.lazy import settings_lazy
+from ninja_plus.pagination.operations import (
     AsyncPaginatorOperation,
     PaginatorOperation,
 )

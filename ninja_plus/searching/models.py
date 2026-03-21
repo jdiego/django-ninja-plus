@@ -7,7 +7,7 @@ from django.db.models import Q, QuerySet
 from django.db.models.constants import LOOKUP_SEP
 from ninja import Field, Schema
 
-from ninja_extra.interfaces.searching import SearchingBase
+from ninja_plus.interfaces.searching import SearchingBase
 
 
 def _istartswith(a: str, b: str) -> bool:

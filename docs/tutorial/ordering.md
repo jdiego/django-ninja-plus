@@ -8,19 +8,19 @@
 
 `def ordering(func_or_ordering_class: Any = NOT_SET, **ordering_params: Any) -> Callable[..., Any]:`
 
-- func_or_ordering_class: Defines a route function or an Ordering Class. default: `ninja_extra.ordering.Ordering`
+- func_or_ordering_class: Defines a route function or an Ordering Class. default: `ninja_plus.ordering.Ordering`
 - ordering_params: extra parameters for initialising Ordering Class
 
 ### Changing Default Ordering Class
 
-To change the default ordering class, you need to add a `NINJA_EXTRA` variable in `settings.py` with a key `ORDERING_CLASS` and value defining path to ordering class
+To change the default ordering class, you need to add a `ninja_plus` variable in `settings.py` with a key `ORDERING_CLASS` and value defining path to ordering class
 
 ```python
 # Django project settings.py
 INSTALLED_APPS = [
     ...
 ]
-NINJA_EXTRA={
+ninja_plus={
     'ORDERING_CLASS': 'someapp.somemodule.CustomOrdering'
 }
 ```
@@ -37,8 +37,8 @@ NINJA_EXTRA={
 
 ```python
 from typing import List
-from ninja_extra.ordering import ordering, Ordering
-from ninja_extra import api_controller, route, NinjaExtraAPI
+from ninja_plus.ordering import ordering, Ordering
+from ninja_plus import api_controller, route, NinjaExtraAPI
 from ninja import ModelSchema
 from django.contrib.auth import get_user_model
 
