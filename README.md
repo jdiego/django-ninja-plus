@@ -8,12 +8,17 @@
 
 # Django Ninja Plus
 
-> ⚠️ This project is a fork of django-ninja-extra.
+> ⚠️This project is a fork of django-ninja-extra, originally created by Ezeudoh Tochukwu.
 > It continues development with an independent roadmap and improvements while preserving compatibility where possible.
 
-Django Ninja Plus is a powerful extension for Django Ninja that enhances your Django REST API development experience. It builds on the foundations of django-ninja-extra and introduces a more maintainable, extensible, and future-proof architecture.
+Django Ninja Plus is a modern, extensible toolkit for building structured, scalable APIs with Django Ninja.
+It builds on the foundations of django-ninja-extra and introduces a more maintainable, extensible, and future-proof architecture.
 
 This project aims to evolve the original ideas with improvements in typing, extensibility, and integration with modern tooling.
+
+
+###> [!NOTE]
+>  project preserves all original copyright and license terms from django-ninja-extra.
 
 ## Features
 
@@ -48,10 +53,11 @@ This project aims to evolve the original ideas with improvements in typing, exte
 
 ## Requirements
 
-- Python >= 3.6
-- Django >= 2.1
-- Pydantic >= 1.6
-- Django-Ninja >= 0.16.1
+- Python >= 3.12
+- Django >= 4.2
+- Pydantic >= 2.x
+- Django-Ninja >= 1.x
+
 
 ## Installation
 
