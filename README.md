@@ -8,7 +8,7 @@
 
 # Django Ninja Plus
 
-> ⚠️This project is a fork of django-ninja-extra, originally created by Ezeudoh Tochukwu.
+> ⚠️ This project is a fork of django-ninja-extra, originally created by Ezeudoh Tochukwu.
 > It continues development with an independent roadmap and improvements while preserving compatibility where possible.
 
 Django Ninja Plus is a modern, extensible toolkit for building structured, scalable APIs with Django Ninja.
@@ -16,9 +16,6 @@ It builds on the foundations of django-ninja-extra and introduces a more maintai
 
 This project aims to evolve the original ideas with improvements in typing, extensibility, and integration with modern tooling.
 
-
-###> [!NOTE]
->  project preserves all original copyright and license terms from django-ninja-extra.
 
 ## Features
 
